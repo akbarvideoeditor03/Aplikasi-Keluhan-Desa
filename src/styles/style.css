@@ -1,0 +1,270 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+ 
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* App-Bar */
+.background_header{
+    background-image: url(../public/background_header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    padding: 40px 20px 0px 20px;
+    height: 139px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.app-bar__brand h1{
+    font-size: 16px;
+    width: 72%;
+}
+
+.app-bar__brand h2{
+    font-size: 10px;
+    margin-top: -2px;
+}
+
+.sign_in button{
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sign_in img{
+    width: 25px;
+}
+
+.app-bar .app-bar__navigation {
+    position: absolute;
+    top: 50px;
+    left: -180px;
+    width: 150px;
+    transition: all 0.3s;
+    padding: 8px;
+    background-color: #29729B;
+    overflow: hidden;
+    margin-top: 150px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+ 
+.app-bar .app-bar__navigation.open {
+    left: 0;
+}
+ 
+.app-bar .app-bar__navigation ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    padding: 8px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.app-bar__menu{
+    margin-top: -27px;
+    background-color: #29729B;
+    width: 15%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0px 0px 5px 25px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.app-bar__menu button{
+    border: none;
+    background-color: #29729B;
+    color: white;
+    font-size: 35px;
+    min-height: 44px;
+    min-width: 44px;
+    max-width: 44px;
+    max-height: 44px;
+    font-weight: bold;
+}
+/* App-Bar */
+
+/* Main */
+main{
+    padding: 32px;
+    flex: 1;
+}
+
+.content {
+    margin: 0 auto;
+    min-height: 100%;
+}
+
+.content .content__heading {
+    font-weight: bold;
+    text-align: center;
+}
+
+.menu{
+    box-shadow: 0px 4px 4px 2px #0000003d;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.isi_menu{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.isi_menu button{
+    width: 100%;
+    border: none;
+    background-color: transparent;
+}
+
+.validasi{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.validasi img{
+    width: 100px;
+    height: 100px;
+}
+
+.validasi h2{
+    font-size: 18px;
+    padding: 20px;
+}
+
+.aksi{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+}
+
+.aksi .belum{
+    color: #FF0000;
+    background-color: #EDEDED;
+    border: none;
+    border-radius: 17.5px;
+    width: 100%;
+    height: 35px;
+    box-shadow: 0px 4px 4px 2px #0000003d;
+}
+
+.aksi .sudah{
+    color: white;
+    background-color: #3481AC;
+    border: none;
+    border-radius: 17.5px;
+    width: 100%;
+    height: 35px;
+    box-shadow: 0px 4px 4px 2px #0000003d;
+}
+
+.form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form form{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    width: 100%;
+}
+
+.form form input{
+    padding: 10px;
+    border-radius: 4px;
+    border: 0.1px solid #007ed844;
+    box-shadow: 0px 4px 4px 2px #0000003d;
+}
+
+.form form .role-container{
+    justify-self: start;
+    font-size: 10px;
+}
+
+.form form select{
+    padding: 10px;
+    border-radius: 4px;
+    border: 0.1px solid #007ed844;
+    box-shadow: 0px 4px 4px 2px #0000003d;
+    color: #0000008f;
+}
+
+.form form input:focus{
+    border: 1px solid #007DD8;
+}
+
+.form form .btn-masuk{
+    background-color: #34AC39;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px 2px #0000003d;
+}
+
+.form form .btn-masuk:hover{
+    background-color: #2d9230;
+}
+
+.batal{
+    color: #FF0000;
+    background-color: #EDEDED;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    height: 35px;
+    box-shadow: 0px 4px 4px 2px #0000003d;
+    text-align: center;
+    text-decoration: none;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Main */
+
+/* Footer */
+footer {
+    padding: 16px;
+    background-color: #3481AC;
+}
+ 
+footer p {
+    text-align: center;
+    color: white;
+    font-size: 12px;
+}
+
+footer .grup {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+/* Footer */
