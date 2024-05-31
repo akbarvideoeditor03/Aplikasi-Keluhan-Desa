@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2';
+
 const Daftar = {
   async render() {
     // Memuat data isian dari localStorage jika ada
@@ -28,7 +30,7 @@ const Daftar = {
                         <label for="role">Apakah anda seorang kepala desa?</label>
                       </div>
                       <div class="aksi">
-                        <a href="#/validasi-batal" class="batal">BATAL</a>
+                        <a class="batal">BATAL</a>
                         <button class="btn-masuk" type="submit">DAFTAR</button>
                       </div>
                     </form>
@@ -51,6 +53,24 @@ const Daftar = {
           email: document.getElementById('email').value,
         };
         localStorage.setItem('daftarFormData', JSON.stringify(formData));
+      });
+
+      const menuLinks = document.querySelector('.batal');
+
+      menuLinks.addEventListener('click', () => {
+        Swal.fire({
+          title: 'Sebentar...',
+          text: 'Apakah Anda yakin ingin membatalkan isian?',
+          icon: 'question',
+          showCancelButton: true,
+          cancelButtonText: 'Kembali',
+          confirmButtonText: 'Ya, saya yakin',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            localStorage.clear();
+            window.history.back();
+          }
+        });
       });
     });
   },
