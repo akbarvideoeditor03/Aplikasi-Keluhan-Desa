@@ -1,16 +1,13 @@
-import Beranda from '../views/pages/beranda';
-import ValidasiMasuk from '../views/pages/validasi-masuk';
-import Masuk from '../views/pages/masuk';
-import Daftar from '../views/pages/daftar';
-import ValidasiBatal from '../views/pages/validasi-batal';
+import AccountPage from "../views/pages/akun";
+import DashboardPage from "../views/pages/dashboard";
+import DataPage from "../views/pages/data";
+import VerificationPage from "../views/pages/verifikasi";
 
 const routes = {
-  '/': Beranda,
-  '/beranda': Beranda,
-  '/validasi-masuk': ValidasiMasuk,
-  '/validasi-batal': ValidasiBatal,
-  '/masuk': Masuk,
-  '/daftar': Daftar,
+  '/': DashboardPage,
+  '/data': DataPage,
+  '/verifikasi': VerificationPage,
+  '/account': AccountPage,
 };
 
 export default routes;

@@ -1,18 +1,18 @@
 import 'regenerator-runtime';
-import '../styles/style.css';
+import '../styles/style-admin.css';
+import '../styles/responsive-admin.css';
+import './views/component/admin-header';
+import './views/component/admin-footer';
 import App from './views/app';
-// import '../styles/responsive.css';
 
-const app = new App({
-  button: document.querySelector('#hamburgerButton'),
-  drawer: document.querySelector('#navigationDrawer'),
-  content: document.querySelector('#mainContent'),
-});
+const app = new App();
 
 window.addEventListener('hashchange', () => {
-  app.renderPage();
+    app.renderPage();
+    document.querySelector('admin-header').highlightActiveNav();
 });
 
 window.addEventListener('load', () => {
-  app.renderPage();
+    app.renderPage();
+    document.querySelector('admin-header').highlightActiveNav();
 });

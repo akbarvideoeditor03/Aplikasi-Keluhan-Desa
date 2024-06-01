@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-image: url('../public/images/background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+}
+
+header {
+    display: inline;
+}
+
+.title__upper, .title__lower {
+    margin-block: 3px;
+    color: white;
+}
+
+.title__upper {
+    font-size: 150%;
+    font-weight: 700;
+}
+
+.title__lower {
+    font-size: 100%;
+    font-weight: 400;
+}
+
+.jambotron {
+    display: flex;
+    flex-direction: row;
+    background-color: #3a619c99;
+    height: 150px;
+    padding: 2rem;
+    gap: 0.75rem;
+}
+
+.admin-header {
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-model {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(20px, 1fr));
+    align-items: center;
+    gap: 10px;
+    
+    width: 100%;
+    line-height: 2.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #205c7e;
+    box-shadow: 3px 3px 8px rgba(18, 18, 18, 0.354);
+    list-style: none;
+    font-weight: bold;
+}
+
+
+
+.nav-list:hover {
+    background-color: rgba(255, 255, 255, 0.495);
+    box-shadow: 2px 2px 8px rgba(133, 133, 133, 0.354);
+}
+
+.active {
+    color: #205c7e;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.354);
+}
+
+.account {
+    grid-row-start: 1;
+    grid-column-start: 6;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.content {
+    gap: 1rem;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    gap: 1rem;
+    height: 1000px;
+    width: 100%;
+    max-width: 1200px;
+    background-color: hsla(0, 0%, 100%, 0.801);
+    box-shadow: 2px 2px 8px rgba(18, 18, 18, 0.354);
+}
+
+.btn {
+    margin-block: 1rem;
+    border-radius: 7.5px;
+    padding: 5px;
+    line-height: 44px;
+    background-color: #3481AC;
+    box-shadow: 2px 2px 8px #3480ac79;
+}
+
+.admin-footer {
+    line-height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3481AC;
+}
+
+.footer-text {
+    color: white;
+    font-weight: 600;
+}
