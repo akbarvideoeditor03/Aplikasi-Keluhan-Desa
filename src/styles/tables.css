@@ -1,0 +1,27 @@
+.table {
+    font-weight: 700;
+    margin-block: 1rem;
+    border-radius: 10px;
+}
+
+.isi {
+    background-color: #FFFFFF;
+}
+
+.table-line {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-line th {
+    background: #075185;
+    color: #FFFFFF;
+    padding: 1em;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.table-line td {
+    border-bottom: 1px solid;
+    padding: 1em;
+}

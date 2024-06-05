@@ -72,8 +72,6 @@ nav {
     font-weight: bold;
 }
 
-
-
 .nav-list:hover {
     background-color: rgba(255, 255, 255, 0.495);
     box-shadow: 2px 2px 8px rgba(133, 133, 133, 0.354);
@@ -112,18 +110,82 @@ a {
     gap: 1rem;
     height: 1000px;
     width: 100%;
-    max-width: 1200px;
     background-color: hsla(0, 0%, 100%, 0.801);
     box-shadow: 2px 2px 8px rgba(18, 18, 18, 0.354);
 }
 
+.v-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 1000px;
+    background-color: hsla(0, 0%, 100%, 0.801);
+    box-shadow: 2px 2px 8px rgba(18, 18, 18, 0.354);
+}
+
+
+
 .btn {
+    color: #205c7e;
+    font-weight: 500;
     margin-block: 1rem;
     border-radius: 7.5px;
     padding: 5px;
     line-height: 44px;
-    background-color: #3481AC;
-    box-shadow: 2px 2px 8px #3480ac79;
+    background-color: #e3e3e3;
+    box-shadow: 2px 2px 8px #57575779;
+}
+
+.text-btn {
+    color: #205c7e;
+};
+
+.btn:hover {
+    font-weight: 500;
+    background-color: hsla(202, 54%, 44%, 0.301);
+}
+
+.active-btn {
+    color: white;
+    font-weight: 500;
+    background-color: #205c7e;
+}
+
+.button {
+    padding: 8px;
+    border-radius: 3px;
+    border-style: none;
+    font-weight: bold;
+    color: white;
+    margin-block-start: 10px;
+    margin-block-end: 10px;
+}
+
+.button-remove {
+    background-color: #e16954;
+}
+
+.button-remove:hover {
+    background-color: #fa8570;
+    box-shadow: 3px 3px 10px #ea2a088e;
+    transition: all ease-in-out 300ms;
+    position: relative;
+    z-index: 1;
+    bottom: 1px;
+}
+
+.button-info{
+    background-color: #5475e1;
+}
+
+.button-info:hover {
+    background-color: #70a5fa;
+    box-shadow: 3px 3px 10px #70a5fa;
+    transition: all ease-in-out 300ms;
+    position: relative;
+    z-index: 1;
+    bottom: 1px;
 }
 
 .admin-footer {

@@ -26,11 +26,11 @@ class AdminHeader extends HTMLElement {
                     <div class="nav-list">Dashboard</div>
                 </a>
                 
-                <a href="#/data" class="nav-link">
+                <a href="#/umum" class="nav-link">
                     <div class="nav-list">Data</div>
                 </a>
 
-                <a href="#/verifikasi" class="nav-link">
+                <a href="#/baru" class="nav-link">
                     <div class="nav-list">Verifikasi</div>
                 </a>
 
