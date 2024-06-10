@@ -8,6 +8,7 @@ const Beranda = {
             <div id="menu" class="menu">
             <h4 class="content__subheading">Menu</h4>
                 <div class="isi_menu">
+
                     <a href="" class="menu_link" data-link="#/kirim-pengaduan">
                         <div class="content_menu">
                             <img src="./kirim-pengaduan.png" alt="">
@@ -26,6 +27,22 @@ const Beranda = {
                         <div class="content_menu">
                             <img src="./umpan-balik.png" alt="">
                             <p>Umpan Balik</p>
+                        </div>
+                    </a>
+
+                    //halaman kotak pengaduan dan kotak penilaian hanya dapat dilihat oleh akun kepala desa (auth.role === kepala desa)
+
+                    <a href="#/kotak-pengaduan">    
+                        <div class="content_menu">
+                            <img src="" alt="kotak-pangaduan">
+                            <p>Kotak Pengaduan</p>
+                        </div>
+                    </a>
+
+                    <a href="#/kotak-penilaian">    
+                        <div class="content_menu">
+                            <img src="" alt="kotak-penilaian">
+                            <p>Kotak Penilaian</p>
                         </div>
                     </a>
 
