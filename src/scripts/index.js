@@ -1,11 +1,13 @@
 import 'regenerator-runtime';
 import '../styles/style.css';
+import '../styles/responsive.css';
+import '../scripts/views/component/web-header';
+import '../scripts/views/component/web-footer';
 import App from './views/app';
-// import '../styles/responsive.css';
 
 const app = new App({
-  button: document.querySelector('#hamburgerButton'),
-  drawer: document.querySelector('#navigationDrawer'),
+  button: document.querySelector('#navigationDrawerSatu'),
+  drawer: document.querySelector('#drawer'),
   content: document.querySelector('#mainContent'),
 });
 

@@ -2,7 +2,6 @@ import Swal from 'sweetalert2';
 
 const Daftar = {
   async render() {
-    // Memuat data isian dari localStorage jika ada
     const savedFormData = JSON.parse(localStorage.getItem('daftarFormData')) || {};
 
     return `

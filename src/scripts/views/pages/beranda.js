@@ -11,58 +11,63 @@ const Beranda = {
 
                     <a href="" class="menu_link" data-link="#/kirim-pengaduan">
                         <div class="content_menu">
-                            <img src="./kirim-pengaduan.png" alt="">
+                            <img src="./web-icons/kirim-pengaduan.svg" alt="">
                             <p>Kirim Pengaduan</p>
                         </div>
                     </a>
 
                     <a class="menu_link" data-link="#/status-pengaduan"> 
                         <div class="content_menu">   
-                            <img src="./status-pengaduan.png" alt="">
+                            <img src="./web-icons/status-pengaduan.svg" alt="">
                             <p>Status Pengaduan</p>
                         </div>
                     </a>
 
                     <a href="#/umpan-balik">    
                         <div class="content_menu">
-                            <img src="./umpan-balik.png" alt="">
+                            <img src="./web-icons/umpan-balik.svg" alt="">
                             <p>Umpan Balik</p>
                         </div>
                     </a>
-
-                    //halaman kotak pengaduan dan kotak penilaian hanya dapat dilihat oleh akun kepala desa (auth.role === kepala desa)
-
+                    
                     <a href="#/kotak-pengaduan">    
                         <div class="content_menu">
-                            <img src="" alt="kotak-pangaduan">
+                            <img src="./web-icons/kotak-pengaduan.svg" alt="kotak-pangaduan">
                             <p>Kotak Pengaduan</p>
+                        </div>
+                    </a>
+
+                    <a href="#/notifikasi">    
+                        <div class="content_menu">
+                            <img src="./web-icons/notifikasi.svg" alt="notifikasi">
+                            <p>Notifikasi</p>
                         </div>
                     </a>
 
                     <a href="#/kotak-penilaian">    
                         <div class="content_menu">
-                            <img src="" alt="kotak-penilaian">
+                            <img src="./web-icons/kotak-penilaian.svg" alt="kotak-penilaian">
                             <p>Kotak Penilaian</p>
                         </div>
                     </a>
 
                     <a href="#/kritik-saran">    
                         <div class="content_menu">
-                            <img src="./kritik-saran.png" alt="">
+                            <img src="./web-icons/kritik-saran.svg" alt="">
                             <p>Kritik & Saran</p> 
                         </div>   
                     </a>
 
                     <a href="#/bantuan">                        
                         <div class="content_menu">
-                            <img src="./bantuan.png" alt="">
+                            <img src="./web-icons/bantuan.svg" alt="">
                             <p>Bantuan</p>
                         </div>
                     </a>
 
                     <a href="#/tentang-kami">
                         <div class="content_menu">
-                            <img src="./tentang-kami.png" alt="">
+                            <img src="./web-icons/tentang-kami.svg" alt="">
                             <p>Tentang Kami</p>
                         </div>
                     </a>
