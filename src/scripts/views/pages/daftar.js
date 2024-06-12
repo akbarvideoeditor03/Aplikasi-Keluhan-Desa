@@ -9,7 +9,7 @@ const Daftar = {
             <h2 class="content__heading">Buat Akun</h2>
             <div id="menu" class="menu">
                 <div class="form">
-                    <img src="./favicon.png" alt="">
+                    <img src="./icon-banner.svg" alt="">
                     <form action="">
                       <input type="text" name="nama" id="nama" placeholder="Nama*" required value="${savedFormData.nama || ''}">
                       <input type="text" name="telp" id="telp" placeholder="No telp*" required value="${savedFormData.telp || ''}">

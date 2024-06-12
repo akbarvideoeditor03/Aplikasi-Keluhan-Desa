@@ -5,7 +5,7 @@ const Masuk = {
             <h2 class="content__heading">Masuk</h2>
             <div id="menu" class="menu">
                 <div class="form">
-                    <img src="./favicon.png" alt="">
+                    <img src="./icon-banner.svg" alt="icon-banner">
                     <form action="">
                         <input type="email" name="email" id="email" placeholder="Email*" required>
                         <input type="password" name="password" id="password" placeholder="Password*" required>
