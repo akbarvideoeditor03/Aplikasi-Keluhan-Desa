@@ -1,21 +1,20 @@
-import Beranda from '../views/pages/beranda';
-import Masuk from '../views/pages/masuk';
-import Daftar from '../views/pages/daftar';
-import StatusPengaduan from '../views/pages/status-pengaduan';
-import UmpanBalik from '../views/pages/umpan-balik';
-import KotakPengaduan from '../views/pages/kotak-pengaduan';
-import KotakPenilaian from '../views/pages/kotak-penilaian';
-
+import AccountPage from "../views/pages/akun";
+import DashboardPage from "../views/pages/dashboard";
+import DataUmum from "../views/pages/data-umum";
+import DataKepalaDesa from "../views/pages/data-kepala-desa";
+import NewVerificationPage from "../views/pages/verifikasi-baru";
+import ResponPage from "../views/pages/response";
+//import  HistoryVerificationPage from "../views/pages/verifikasi-riwayat";
 
 const routes = {
-  '/': Beranda,
-  '/beranda': Beranda,
-  '/masuk': Masuk,
-  '/daftar': Daftar,
-  '/status-pengaduan' : StatusPengaduan,
-  '/kritik-saran' : UmpanBalik,
-  '/kotak-pengaduan' : KotakPengaduan,
-  '/kotak-penilaian' : KotakPenilaian,
+  '/': DashboardPage,
+  '/umum': DataUmum,
+  '/kades' : DataKepalaDesa,
+  '/baru': NewVerificationPage,
+  // '/riwayat' : HistoryVerificationPage,
+  '/account': AccountPage,
+  '/baru/:id' : NewVerificationPage,
+  '/respon/:id' : ResponPage,
 };
 
 export default routes;

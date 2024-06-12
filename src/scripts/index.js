@@ -1,20 +1,20 @@
 import 'regenerator-runtime';
-import '../styles/style.css';
-import '../styles/responsive.css';
-import '../scripts/views/component/web-header';
-import '../scripts/views/component/web-footer';
+import '../styles/style-admin.css';
+import '../styles/responsive-admin.css';
+import '../styles/tables.css'
+import './views/component/admin-header';
+import './views/component/admin-footer';
 import App from './views/app';
+import swal from 'sweetalert';
 
-const app = new App({
-  button: document.querySelector('#navigationDrawerSatu'),
-  drawer: document.querySelector('#drawer'),
-  content: document.querySelector('#mainContent'),
-});
+const app = new App();
 
 window.addEventListener('hashchange', () => {
-  app.renderPage();
+    app.renderPage();
+    document.querySelector('admin-header').highlightActiveNav();
 });
 
 window.addEventListener('load', () => {
-  app.renderPage();
+    app.renderPage();
+    document.querySelector('admin-header').highlightActiveNav();
 });
