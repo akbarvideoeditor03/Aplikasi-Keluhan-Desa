@@ -2,17 +2,18 @@ import Swal from 'sweetalert2';
 
 const Daftar = {
   async render() {
-    // Memuat data isian dari localStorage jika ada
     const savedFormData = JSON.parse(localStorage.getItem('daftarFormData')) || {};
 
     return `
           <div class="content">
             <h2 class="content__heading">Buat Akun</h2>
             <div id="menu" class="menu">
+
               <div class="form">
                     <img src="./favicon.png" alt="">
                     <form id="registerForm" enctype="multipart/form-data" method="POST">
                       <h4 class="content__subheading">Form Buat Akun</h4>
+                      
                       <input type="text" name="nama" id="nama" placeholder="Nama*" required value="${savedFormData.nama || ''}">
                       <input type="text" name="telp" id="telp" placeholder="No telp*" required value="${savedFormData.telp || ''}">
                       <input type="text" name="nama-jalan" id="nama-jalan" placeholder="Nama Jalan*" required value="${savedFormData['nama-jalan'] || ''}">
