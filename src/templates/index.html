@@ -17,12 +17,10 @@
             <h1>Selamat datang di aplikasi Keluhan Desa</h1>
             <h2>Solusi pengaduan cepat dan tepat</h2>
         </div>
-        <div class="sign_in">
-            <a href="#/masuk">        
-              <img src="./sign_in.png" alt="">
-              <p>Masuk</p>
-            </a>
-        </div>
+        <div class="user-profile">
+        <!-- Ganti dengan konten profil pengguna setelah login -->
+        <p id="userProfile"></p>
+      </div>
     </div>    
     <nav id="navigationDrawer" class="app-bar__navigation">
       <ul>
@@ -43,5 +41,22 @@
     <p>All Rights Reserved © 2024</p>
     <p class="grup">Grup Capstone</p>
   </footer>
+
+   <script>
+    // Ambil data pengguna dari localStorage setelah login
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    // Ambil elemen profil pengguna dari HTML
+    const userProfile = document.getElementById('userProfile');
+
+    // Periksa apakah pengguna telah login
+    if (user) {
+      // Tampilkan nama pengguna sebagai profil setelah login
+      userProfile.textContent = user.body.nama; // Ganti 'nama' dengan properti yang sesuai
+    } else {
+      // Jika pengguna belum login, tampilkan tombol Masuk
+      userProfile.innerHTML = `<div class="sign_in"><a href="#/masuk"><img src="./sign_in.png" alt=""> Masuk</a></div>`;
+    }
+  </script>
 </body>
 </html>
