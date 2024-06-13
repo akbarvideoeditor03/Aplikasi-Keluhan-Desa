@@ -4,6 +4,7 @@ import Masuk from '../views/pages/masuk';
 import Daftar from '../views/pages/daftar';
 import kirimPengaduan from '../views/pages/kirim-pengaduan';
 import statusPengaduan from '../views/pages/status-pengaduan';
+<<<<<<< Updated upstream
 
 import AccountPage from "../views/pages/akun";
 import DashboardPage from "../views/pages/dashboard";
@@ -12,6 +13,8 @@ import DataKepalaDesa from "../views/pages/data-kepala-desa";
 import NewVerificationPage from "../views/pages/verifikasi-baru";
 import ResponPage from "../views/pages/response";
 //import  HistoryVerificationPage from "../views/pages/verifikasi-riwayat";
+=======
+>>>>>>> Stashed changes
 
 const routes = {
   '/': Beranda,
@@ -20,6 +23,7 @@ const routes = {
   '/daftar': Daftar,
   '/kirim-pengaduan': kirimPengaduan,
   '/status-pengaduan': statusPengaduan,
+<<<<<<< Updated upstream
   
   '/admin': DashboardPage,
   '/umum': DataUmum,
@@ -29,6 +33,8 @@ const routes = {
   '/account': AccountPage,
   '/baru/:id' : NewVerificationPage,
   '/respon/:id' : ResponPage,
+=======
+>>>>>>> Stashed changes
 };
 
 export default routes;

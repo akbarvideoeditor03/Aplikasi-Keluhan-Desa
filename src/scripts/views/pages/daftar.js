@@ -8,12 +8,18 @@ const Daftar = {
           <div class="content">
             <h2 class="content__heading">Buat Akun</h2>
             <div id="menu" class="menu">
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
               <div class="form">
                     <img src="./favicon.png" alt="">
                     <form id="registerForm" enctype="multipart/form-data" method="POST">
                       <h4 class="content__subheading">Form Buat Akun</h4>
+<<<<<<< Updated upstream
                       
+=======
+>>>>>>> Stashed changes
                       <input type="text" name="nama" id="nama" placeholder="Nama*" required value="${savedFormData.nama || ''}">
                       <input type="text" name="telp" id="telp" placeholder="No telp*" required value="${savedFormData.telp || ''}">
                       <input type="text" name="nama-jalan" id="nama-jalan" placeholder="Nama Jalan*" required value="${savedFormData['nama-jalan'] || ''}">
