@@ -1,7 +1,13 @@
+<<<<<<< Updated upstream
 
 const CONFIG = {
   KEY: '286e1cf5bc3900a0f4f72f9d35011dc7',
   baseURL : 'https://ap-southeast-1.aws.data.mongodb-api.com/app/keluhandesa-gnkpeux',
+=======
+const CONFIG = {
+  KEY: '286e1cf5bc3900a0f4f72f9d35011dc7',
+  BASE_URL: 'https://api.themoviedb.org/3/',
+>>>>>>> Stashed changes
   BASE_IMAGE_URL: 'https://image.tmdb.org/t/p/w500/',
   DEFAULT_LANGUAGE: 'en-us',
   DATABASE_NAME: 'movie-catalogue-database',
@@ -14,4 +20,8 @@ const CONFIG = {
   PUSH_MSG_UNSUBSCRIBE_URL: 'https://dicoding-movie-push-notif.netlify.app/.netlify/functions/unsubscribe',
 };
 
+<<<<<<< Updated upstream
 export default CONFIG;
+=======
+export default CONFIG;
+>>>>>>> Stashed changes

@@ -1,4 +1,7 @@
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 import Swal from 'sweetalert2';
 
 const statusPengaduan = {
@@ -27,6 +30,7 @@ const statusPengaduan = {
 };
 
 export default statusPengaduan;
+<<<<<<< Updated upstream
 
 // import { status_pengaduan } from "../template/template-creator";
 
@@ -47,3 +51,5 @@ export default statusPengaduan;
 
 // export default StatusPengaduan;
 
+=======
+>>>>>>> Stashed changes
