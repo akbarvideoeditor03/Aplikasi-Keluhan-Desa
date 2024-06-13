@@ -71,6 +71,8 @@ const Beranda = {
                             <p>Tentang Kami</p>
                         </div>
                     </a>
+
+                    <button id="logoutButton" class="btn-logout">Logout</button>
                 </div>
             </div>
           </div>
@@ -78,8 +80,6 @@ const Beranda = {
   },
 
   async afterRender() {
-    const isLoggedIn = false;
-
     const menuLinks = document.querySelectorAll('.menu_link');
     menuLinks.forEach((link) => {
       link.addEventListener('click', (event) => {
@@ -87,6 +87,8 @@ const Beranda = {
         event.preventDefault();
         // Ambil link tujuan dari atribut data
         const targetLink = link.getAttribute('data-link');
+
+        const isLoggedIn = !!localStorage.getItem('user');
 
         // Jika pengguna belum login, tampilkan pop-up konfirmasi
         if (!isLoggedIn) {
@@ -110,6 +112,40 @@ const Beranda = {
         }
       });
     });
+
+    const logoutButton = document.getElementById('logoutButton');
+    logoutButton.addEventListener('click', () => {
+      Swal.fire({
+        title: 'Sebentar...',
+        text: 'Apakah Anda yakin ingin keluar?',
+        icon: 'question',
+        showCancelButton: true,
+        cancelButtonText: 'Kembali',
+        confirmButtonText: 'Ya, keluar',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Hapus data pengguna dari localStorage
+          localStorage.removeItem('user');
+          // Redirect pengguna ke halaman login
+          window.location.href = '#/masuk';
+
+          // Perbarui tampilan profil pengguna setelah logout
+          const userProfile = document.querySelector('.user-profile');
+          userProfile.innerHTML = '<div class="sign_in"><a href="#/masuk"><img src="./sign_in.png" alt=""> Masuk</a></div>';
+        } else {
+          window.location.href = '#/daftar';
+        }
+      });
+    });
+
+    // Perbarui tampilan profil pengguna
+    const userProfile = document.querySelector('.user-profile');
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      userProfile.innerHTML = `<p>${user.body.nama}</p>`; // Ganti 'nama' dengan properti yang sesuai
+    } else {
+      userProfile.innerHTML = '<div class="sign_in"><a href="#/masuk"><img src="./sign_in.png" alt=""> Masuk</a></div>';
+    }
   },
 };
 
