@@ -88,6 +88,23 @@
         cursor: pointer;
         text-decoration: none;
     }
+
+    .content_menu {
+        padding: 1rem;
+        border-radius: 1rem;
+        background-color: rgb(242, 242, 242);
+        box-shadow: 3px 3px 10px hsla(0, 0%, 43%, 0.3);
+    }
+    
+    .content_menu:hover {
+        padding: 1rem;
+        border-radius: 1rem;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 3px 3px 10px hsla(213, 100%, 75%, 0.5);
+        position: relative;
+        top: -2px;
+        transition: ease-in-out 150ms;
+    }
 }
 
 .isi_menu a {
@@ -102,9 +119,23 @@
     font-size: 14px;
 }
 
-.aksi {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    width: 100%;
+@media screen and (min-width: 300px) {
+    .tim-item {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media screen and (min-width: 540px) {
+    .tim-item {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .tim-item {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
 }

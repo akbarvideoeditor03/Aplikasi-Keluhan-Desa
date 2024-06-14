@@ -1,40 +1,29 @@
-
 import Beranda from '../views/pages/beranda';
 import Masuk from '../views/pages/masuk';
 import Daftar from '../views/pages/daftar';
-import kirimPengaduan from '../views/pages/kirim-pengaduan';
-import statusPengaduan from '../views/pages/status-pengaduan';
-<<<<<<< Updated upstream
+import KotakPengaduan from '../views/pages/kotak-pengaduan';
+import RincianPengaduan from '../views/pages/rincian-pengaduan';
+import StatusPengaduan from '../views/pages/status-pengaduan';
+import UmpanBalik from '../views/pages/umpan-balik';
+import RincianUmpan_Balik from '../views/pages/umpan-balik-rincian';
+import KritikSaran from '../views/pages/kritik-saran';
+import Bantuan from '../views/pages/bantuan';
+import TentangKami from '../views/pages/tentang';
 
-import AccountPage from "../views/pages/akun";
-import DashboardPage from "../views/pages/dashboard";
-import DataUmum from "../views/pages/data-umum";
-import DataKepalaDesa from "../views/pages/data-kepala-desa";
-import NewVerificationPage from "../views/pages/verifikasi-baru";
-import ResponPage from "../views/pages/response";
-//import  HistoryVerificationPage from "../views/pages/verifikasi-riwayat";
-=======
->>>>>>> Stashed changes
 
 const routes = {
   '/': Beranda,
   '/beranda': Beranda,
   '/masuk': Masuk,
   '/daftar': Daftar,
-  '/kirim-pengaduan': kirimPengaduan,
-  '/status-pengaduan': statusPengaduan,
-<<<<<<< Updated upstream
-  
-  '/admin': DashboardPage,
-  '/umum': DataUmum,
-  '/kades' : DataKepalaDesa,
-  '/baru': NewVerificationPage,
-  // '/riwayat' : HistoryVerificationPage,
-  '/account': AccountPage,
-  '/baru/:id' : NewVerificationPage,
-  '/respon/:id' : ResponPage,
-=======
->>>>>>> Stashed changes
+  '/kotak-pengaduan' : KotakPengaduan,
+  '/status-pengaduan' : StatusPengaduan,
+  '/rincian-pengaduan' : RincianPengaduan,
+  '/umpan-balik' : UmpanBalik,
+  '/rincian-umpanbalik' : RincianUmpan_Balik,
+  '/bantuan' : Bantuan,
+  '/kritik-saran' : KritikSaran,
+  '/tentang-kami' : TentangKami,
 };
 
 export default routes;

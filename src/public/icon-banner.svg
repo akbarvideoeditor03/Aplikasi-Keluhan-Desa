@@ -50,8 +50,8 @@
      inkscape:deskcolor="#505050"
      showgrid="false"
      inkscape:zoom="6.4438045"
-     inkscape:cx="66.03242"
-     inkscape:cy="19.165696"
+     inkscape:cx="59.204155"
+     inkscape:cy="27.080275"
      inkscape:window-width="1920"
      inkscape:window-height="1001"
      inkscape:window-x="-9"
@@ -61,9 +61,11 @@
   <g
      inkscape:groupmode="layer"
      inkscape:label="Image"
-     id="g1013">
+     id="g1013"
+     transform="translate(0.46556347,41.435149)">
     <g
-       id="g5250">
+       id="g5250"
+       transform="translate(-0.46556347,-41.435149)">
       <text
          xml:space="preserve"
          style="font-weight:bold;font-size:12.5943px;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#000000;stroke-width:13.3877"
@@ -74,7 +76,7 @@
            id="tspan1232"
            x="59.145523"
            y="22.280687"
-           style="stroke-width:13.3877;fill:#000000">KELUHAN</tspan></text>
+           style="fill:#000000;stroke-width:13.3877">KELUHAN</tspan></text>
       <text
          xml:space="preserve"
          style="font-weight:bold;font-size:12.5943px;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#000000;stroke-width:13.3877"
@@ -85,7 +87,7 @@
            id="tspan1236"
            x="59.145523"
            y="35.909187"
-           style="stroke-width:13.3877;fill:#000000">DESA</tspan></text>
+           style="fill:#000000;stroke-width:13.3877">DESA</tspan></text>
       <text
          xml:space="preserve"
          style="font-weight:bold;font-size:3.79323px;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#000000;stroke-width:4.03219"
@@ -96,7 +98,7 @@
            id="tspan1290"
            x="59.835201"
            y="41.262905"
-           style="stroke-width:4.03219;fill:#000000">Solusi pengaduan cepat dan tepat</tspan></text>
+           style="fill:#000000;stroke-width:4.03219">Solusi pengaduan cepat dan tepat</tspan></text>
       <g
          id="g2984">
         <path
