@@ -5,27 +5,17 @@ import { list_NewItem, verifikasi_baru } from "../templates/template-creator";
 const NewVerificationPage = {
     async render() {
         return `
-        <div class="content v-content">
-            <div class="v-left-side">
-                <h3>Pilih</h3>
-                <a href="#/baru">
-                    <div class="btn">Baru</div>
-                </a>
-                <a href="#/riwayat">
-                    <div class="btn">Riwayat</div>
-                </a>
-            </div>
-
-            <div class="verification-content">
-                <div class="v-card nav-menu">
-                    <h3>Daftar</h3>
-                    <div id="new-item" class="new-item"></div>
+        <div class="container row-container content center-start admin-container">
+            <div class="nav-menu bg-white">
+                <h3>Daftar</h3>
+                <div id="new-item" class="new-item">
+                    
                 </div>
-                <div class="v-card verification-core">
-                    <h3>Isi</h3>
-                    <div id="isi">
-                        <p>Tidak ada daftar yang dipilih</p>
-                    </div>
+            </div>
+            <div class="new-item verification-core center-start bg-white">
+                <h3>Isi</h3>
+                <div id="isi">
+                    <p class="new-item empty-verification-core verification-core center-start">Tidak ada daftar yang dipilih</p>
                 </div>
             </div>
         </div>
@@ -62,7 +52,6 @@ const NewVerificationPage = {
             }
         }
 
-        // Store the selected item in localStorage when the Respon button is clicked
         document.addEventListener('click', (event) => {
             if (event.target.classList.contains('button-respon')) {
                 const id = event.target.getAttribute('data-id');

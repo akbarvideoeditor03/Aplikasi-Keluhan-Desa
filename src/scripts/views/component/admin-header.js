@@ -35,7 +35,9 @@ class AdminHeader extends HTMLElement {
                 </a>
 
                 <a href="#/account" class="account nav-link">
-                    <div class="nav-list bi bi-person-circle" style="font-size: 150%"></div>
+                    <div class="nav-list">
+                        <i class="bi bi-person-circle" style="font-size: 150%; margin-inline-end: 1vh;"></i> ${('namaAdmin')}
+                    </div>
                 </a>
             </ul>
         </nav>

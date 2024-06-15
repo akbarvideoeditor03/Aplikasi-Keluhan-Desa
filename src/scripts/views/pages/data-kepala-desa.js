@@ -5,7 +5,7 @@ import { data_kepaladesa } from "../templates/template-creator";
 const DataKepalaDesa = {
     async render() {
         return `
-        <div class="content">
+        <div class="container row-container content admin-container">
             <div class="left-side">
                 <h3>Menu</h3>
                 <a href="#/umum">

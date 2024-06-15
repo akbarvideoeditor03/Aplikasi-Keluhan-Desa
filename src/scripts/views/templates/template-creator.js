@@ -1,8 +1,8 @@
 import ENDPOINT_OF_API from "../../globals/endpoint";
 
-const akun = () => `
+const akun_admin = () => `
     <h2 class="profile-title">Profil Admin Sistem</h2>
-    <div class="profile-container">
+    <div class="profile-container admin-container">
         <div class="box1">
             <h2>Foto Profil</h2>
             <div class="content image-container">
@@ -58,14 +58,21 @@ const akun = () => `
                 </tbody>
             </table>
         </div>
+        <div class="box4">
+            <h2>Keluar</h2>
+            <form  id="myForm" action="/logout" method="POST">
+                <button id="logout" class="button button-remove" type="submit" style="font-size: larger;">
+                    <i class="bi bi-box-arrow-left"></i>
+                    Keluar
+                </button>
+            </form>
+        </div>
     </div>
 `;
 
 const dashboard = () => `
-    <div class="content">
-        <div class="card">
-            <h1>Selamat Datang Admin $nama</h1>
-        </div>
+    <div class="container center card card-container dashboard">
+        <h2>Selamat Datang Admin $nama</h2>
     </div>
 `;
 
@@ -241,7 +248,8 @@ const responPage = (respon) => `
     </div>
     <div class="r-card">
         <h3>Keterangan</h3>
-        <form>
+
+        <form id="myForm" action="" method="post">
             <div class="form-group">
                 <textarea class="textarea" name="keterangan" id="keterangan" placeholder="Ketik keterangan minimal 20 kata..." required></textarea>
             </div>
@@ -249,18 +257,10 @@ const responPage = (respon) => `
                 <p>Pastikan teks keterangan telah benar-benar lengkap dan jelas.</p>
             </div>
             <div>
-                <button class="button button-accept">Kirim</button>
+                <button type="submit" class="button button-accept" id="sentButton">Kirim</button>
             </div>
         </form>
     </div>
-`;
-
-const verifikasi_riwayat = () => `
-    <table>
-        <tbody>
-            
-        </tbody>
-    </table>
 `;
 
 const deleteData = async (id) => {
@@ -283,13 +283,12 @@ const deleteData = async (id) => {
 };
 
 export {
+    akun_admin,
     dashboard,
     data_umum,
-    deleteData,
     data_kepaladesa,
     list_NewItem,
     verifikasi_baru,
     responPage,
-    verifikasi_riwayat,
-    akun,
+    deleteData,
 }

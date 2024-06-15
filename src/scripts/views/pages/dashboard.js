@@ -3,7 +3,7 @@ import { dashboard } from "../templates/template-creator";
 const DashboardPage = {
     async render() {
         return `
-        <div id="dashboard" class="dashboard">
+        <div id="dashboard" class="container col-container admin-container content">
         </div>
         `;
     },

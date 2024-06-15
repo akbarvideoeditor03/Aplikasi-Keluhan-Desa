@@ -73,11 +73,36 @@ nav {
     font-weight: bold;
 }
 
-.response-container {
+.container {
     display: flex;
+}
+
+.col-container {
     flex-direction: column;
+    gap: 1rem;
+}
+
+.row-container {
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.center {
     justify-content: center;
     align-items: center;
+}
+
+.center-start {
+    justify-content: center;
+    align-items: start;
+}
+
+.bg-white {
+    background-color: hsla(0, 0%, 100%, 0.8);
+    box-shadow: 2px 2px 8px rgba(18, 18, 18, 0.354);
+}
+
+.admin-container {
     padding: 1rem;
 }
 
@@ -128,41 +153,40 @@ a {
 }
 
 .content {
-    gap: 1rem;
-    margin: 20px;
-    display: flex;
+    margin: 0 auto;
+    min-height: 100%;
+    max-width: 1200px;
 }
 
 .card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-radius: 10px;
     gap: 1rem;
-    min-height: 960px;
+    padding: 1rem;
     background-color: hsla(0, 0%, 100%, 0.801);
     box-shadow: 2px 2px 8px rgba(18, 18, 18, 0.354);
 }
 
+.card-container {
+    min-height: 50vh;
+    max-height: 1200px;
+    overflow: auto;
+}
+
+.dashboard {
+    background-image: url('https://coreui.io/images/ogimages/coreui_1200_600.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: opacity(90%);
+
+    min-width: 100%;
+    max-width: 1200px;
+
+    min-height: 75vh;
+}
+
 .image-container {
     justify-content: center;
-}
-
-.profile-image {
-    margin-block: 1rem;
-    width: calc(100%);
-}
-
-.attach-image {
-    margin-block: 1rem;
-    width: calc(100%);
-    max-width: 1200px;
-}
-    
-.v-content {
-    justify-content: center;
-    align-items: center;
-    width: 100%;
 }
 
 .v-card {
@@ -183,7 +207,7 @@ a {
     margin: 1rem;
     padding: 1rem;
 
-    background-color: rgba(255, 255, 255, 0.295);
+    background-color: hsla(0, 0%, 100%, 0.8);
     backdrop-filter: blur(10px);
     box-shadow: 5px 5px 12px rgba(40, 40, 40, 0.607);
     
@@ -192,6 +216,8 @@ a {
 }
 
 [class^='box'] {
+    border-radius: 10px;
+    background-color: hsla(0, 0%, 100%, 0.8);
     box-shadow: 2px 2px 8px rgba(18, 18, 18, 0.354);
     padding: 1rem;
 }
@@ -201,6 +227,18 @@ a {
     margin: 0;
     padding: 0;
     padding-block: 1rem;
+}
+
+.attach-image {
+    margin-block: 1rem;
+    width: calc(100%);
+    max-width: 960px;
+}
+
+.profile-image {
+    margin-block: 1rem;
+    width: calc(100%);
+    max-width: 480px;
 }
 
 .btn {
@@ -297,7 +335,6 @@ a {
     font-weight: 500;
 }
 
-
 .button-accept:hover {
     background-color: #53c34f;
     box-shadow: 3px 3px 10px #0e5d0b69;
@@ -305,7 +342,7 @@ a {
     position: relative;
     z-index: 1;
     bottom: 1px;
-    }
+}
 
 .button-accept:disabled {
     background-color: #798f79;
@@ -348,9 +385,8 @@ a {
 }
 
 .new-item {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
+    overflow: auto;
+    height: 650px;
 }
 
 .line_bottom {
