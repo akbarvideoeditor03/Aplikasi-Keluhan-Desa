@@ -17,6 +17,8 @@ import NewVerificationPage from '../views/pages/verifikasi-baru';
 import ResponPage from '../views/pages/response';
 import RincianPengaduan from '../views/pages/rincian-pengaduan';
 import RincianStatusPengaduan from '../views/pages/rincian-status-pengaduan';
+import Akun from '../views/pages/akun';
+import InformasiAnda from '../views/pages/informasi-anda';
 RincianStatusPengaduan
 
 const user = JSON.parse(localStorage.getItem('user'));
@@ -47,11 +49,15 @@ const penggunaUmumRoutes = {
   '/status-pengaduan/:id': RincianStatusPengaduan,
   '/umpan-balik': UmpanBalik,
   '/rincian-umpanbalik': RincianUmpan_Balik,
+  '/akun': Akun,
+  '/informasi_anda': InformasiAnda,
 };
 
 const kepalaDesaRoutes = {
   '/kotak-pengaduan': KotakPengaduan,
   '/rincian-pengaduan/:id': RincianPengaduan,
+  '/akun': Akun,
+  '/informasi_anda': InformasiAnda,
 };
 
 const routes = {

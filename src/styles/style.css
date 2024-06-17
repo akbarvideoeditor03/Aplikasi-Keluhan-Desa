@@ -258,6 +258,10 @@ nav button {
     align-items: center;
 }
 
+.align-center {
+    align-items: center;
+}
+
 .center-start {
     justify-content: center;
     align-items: start;
@@ -386,6 +390,31 @@ nav button {
         bottom: 1px;
         transition: ease-in-out 150ms;
     }
+
+    .akun-item {
+        border-radius: 10px;
+        background-color: #5199c4;
+        box-shadow: 5px 5px 12px hsla(199, 100%, 57%, 0.364);
+        min-height: 6rem;
+        padding: 1rem;
+
+        max-width: calc(100%);
+        width: 100%;
+        position: relative;
+        bottom: 1px;
+        transition: ease-in-out 150ms;
+    }
+}
+
+.akun-item {
+    border-radius: 10px;
+    background-color: #3481AC;
+    box-shadow: 5px 5px 12px #00000069;
+    min-height: 6rem;
+    padding: 1rem;
+
+    max-width: calc(100%);
+    width: 100%;
 }
 
 .content .content__heading {

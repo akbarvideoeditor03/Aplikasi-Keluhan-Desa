@@ -11,7 +11,6 @@ const RincianPengaduan = {
                     <h2>Rincian Pengaduan</h2>
                 </div>
                 <div id="rincian_pengaduan" class="container col-container card card-container">
-                    
                 </div>
             </div>
         `;

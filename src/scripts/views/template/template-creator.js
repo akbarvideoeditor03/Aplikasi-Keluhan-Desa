@@ -1,3 +1,58 @@
+const user = JSON.parse(localStorage.getItem('user'));
+
+const akun = () => `
+    <a href="#/informasi_anda" class="container row-container ub-link">
+        <div class="akun-item container row-container align-center">
+            <div>
+                <i class="bi bi-person-circle" style="font-size: 50px"></i>
+            </div>
+            <div>
+                <h3>Informasi Anda</h3>
+            </div>
+        </div>
+    </a>
+    ${user && user.role === 'kepala desa' ? `
+        <a href="" class="container row-container ub-link">
+        <div class="akun-item container row-container align-center">
+            <div>
+                <i class="bi bi-patch-check" style="font-size: 50px"></i>
+            </div>
+            <div>
+                <h3>Status Verifikasi</h3>
+            </div>
+        </div>
+    </a> 
+    ` : ''}
+`;
+
+const informasi_anda = (user) => `
+    <div>
+        <caption>Nama</caption>
+        <article class="text-bg">
+            ${user.nama}
+        </article>
+    </div>
+    <div>
+        <caption>Nomor Telepon</caption>
+        <article class="text-bg">
+            ${user.no_telp}
+        </article>
+    </div>
+    <div>
+        <caption>Alamat</caption>
+        <article class="text-bg">
+            ${user.nama_jalan}, desa ${user.desa}, kec. ${user.kecamatan}, kab. ${user.kabupaten}, ${user.provinsi}
+        </article>
+    </div>
+    <div>
+        <caption>Email</caption>
+        <article class="text-bg">
+            ${user.email}
+        </article>
+    </div>
+    <button id="editButton" class="button button-info"><i class="bi bi-pencil-square" style="font-size: 1em;"></i> Edit Akun</button>
+`;
+
 const bantuan__page = () => `
     <button type="button" class="collapsible">Cara mengirimkan pesan pengaduan</button>
     <div class="content-collapsible">
@@ -60,7 +115,7 @@ const status_pengaduan = (item) => `
     </a>
 `;
 
-const rincian_status_pengaduan = (item) => `
+const rincian_status_pengaduan = (item, namaKepalaDesa) => `
     <div>
         <h4>Judul Pengaduan</h4>
         <div class="text text-bg">
@@ -68,7 +123,7 @@ const rincian_status_pengaduan = (item) => `
         </div>
     </div>
     <div>
-        <h4>Tanggal Pengaduan</h4>
+        <h4>Isi Pengaduan</h4>
         <div class="text text-bg">
             <p>${item.isi}</p>
         </div>
@@ -86,10 +141,16 @@ const rincian_status_pengaduan = (item) => `
         </div>
     </div>
     <div>
+        <h4>Nama Kepala Desa</h4>
+        <div class="text text-bg">
+            <p>${namaKepalaDesa}</p>
+        </div>
+    </div>
+    <div>
         <h4>Lampiran</h4>
         <button id="lihat-lampiran" class="ub-link button button-info"><i class="bi bi-image-fill"> </i>Lihat Lampiran</button>
     </div>
-`
+`;
 
 const kotak_pengaduan = (item) => `
     <a href="#/rincian-pengaduan/${item.id}" class="container col-container ub-link">
@@ -554,6 +615,8 @@ const deleteData = async (id) => {
 };
 
 export {
+    akun,
+    informasi_anda,
     rincian_umpanbalik,
     bantuan__page,
     umpan_balik_template,

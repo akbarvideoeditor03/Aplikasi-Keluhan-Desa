@@ -8,7 +8,7 @@ const TentangKami = {
                 <h2>Bantuan</h2>
             </div>
             <div id="help" class="container col-container card card-container">
-                
+                Loading...
             </div>
         </div>
         `;

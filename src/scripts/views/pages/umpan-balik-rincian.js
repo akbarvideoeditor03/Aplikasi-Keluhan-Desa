@@ -9,7 +9,7 @@ const RincianUmpan_Balik = {
                     <h2>Rincian Umpan Balik</h2>
                 </div>
                 <div id="rincian" class="container col-container card card-container">
-                    
+                    Loading...
                 </div>
             </div>
         `;

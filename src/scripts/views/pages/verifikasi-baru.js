@@ -8,7 +8,9 @@ const NewVerificationPage = {
         <div class="container row-container content center-start admin-container">
             <div class="nav-menu bg-white">
                 <h3>Daftar</h3>
-                <div id="new-item" class="new-item button button-new"></div>
+                <div id="new-item" class="new-item button button-new">
+                    Loading...
+                </div>
             </div>
             <div class="new-item verification-core center-start bg-white">
                 <h3>Isi</h3>
