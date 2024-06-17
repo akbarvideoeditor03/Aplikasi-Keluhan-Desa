@@ -1,43 +1,64 @@
-import { rincian_umpanbalik } from "../template/template-creator";
 import Swal from 'sweetalert2';
+import supabase from '../../global/config';
+import { rincian_umpanbalik } from '../template/template-creator';
+import UrlParser from '../../routes/url-parser';
 
 const RincianUmpan_Balik = {
-    async render() {
-        return `
+  async render() {
+    return `
             <div class="content container col-container">
                 <div>
                     <h2>Rincian Umpan Balik</h2>
                 </div>
                 <div id="rincian" class="container col-container card card-container">
-                    Loading...
+                    
                 </div>
             </div>
         `;
-    },
+  },
 
-    async afterRender() {
-        const rincian = document.querySelector('#rincian');
-        rincian.innerHTML = rincian_umpanbalik();
+  async afterRender() {
+    const url = UrlParser.parseActiveUrlWithoutCombiner();
+    const pengaduanId = url.id;
 
-        const lihatLampiranButton = document.querySelector('#lihat-lampiran');
-        const imageUrl = 'https://sidakpost.id/wp-content/uploads/2024/01/Screenshot_2024-01-27-17-24-35-62_6012fa4d4ddec268fc5c7112cbb265e7.jpg';
+    const { data, error } = await supabase
+      .from('usersActivity')
+      .select('*')
+      .eq('id', pengaduanId);
 
-        if (!imageUrl) {
-            lihatLampiranButton.setAttribute('disabled', 'true');
-            lihatLampiranButton.classList.add('disabled');
-        }
-
-        lihatLampiranButton.addEventListener('click', (event) => {
-            event.preventDefault();
-            if (imageUrl) {
-                Swal.fire({
-                    title: 'Lampiran Gambar',
-                    imageUrl: imageUrl,
-                    imageAlt: 'Lampiran Gambar',
-                });
-            }
-        });
+    if (error) {
+      console.error('Error fetching data:', error);
+      document.querySelector('#rincian').innerHTML = '<p>Gagal mengambil data pengaduan. Harap coba lagi nanti.</p>';
+      return;
     }
+
+    if (data.length === 0) {
+      document.querySelector('#rincian').innerHTML = '<p>Data pengaduan tidak ditemukan.</p>';
+      return;
+    }
+
+    const umpanBalik = data[0];
+    document.querySelector('#rincian').innerHTML = rincian_umpanbalik(umpanBalik);
+
+    const lihatLampiranButton = document.querySelector('#lihat-lampiran');
+    const imageUrl = `${data.map((item) => item.lampiran).join('')}`;
+
+    if (!imageUrl) {
+      lihatLampiranButton.setAttribute('disabled', 'true');
+      lihatLampiranButton.classList.add('disabled');
+    }
+
+    lihatLampiranButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (imageUrl) {
+        Swal.fire({
+          title: 'Lampiran Gambar',
+          imageUrl,
+          imageAlt: 'Lampiran Gambar',
+        });
+      }
+    });
+  },
 };
 
 export default RincianUmpan_Balik;

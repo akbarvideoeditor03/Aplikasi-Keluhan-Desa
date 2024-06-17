@@ -14,7 +14,7 @@ const Daftar = {
                     <form id="daftarForm">
                       <input type="text" name="nama" id="nama" placeholder="Nama*" required value="${savedFormData.nama || ''}">
                       <input type="text" name="no_telp" id="no_telp" placeholder="Nomor Telepon*" required value="${savedFormData.no_telp || ''}">
-                      <input type="text" name="nama_jalan" id="nama_jalan" placeholder="Nama Jalan*" required value="${savedFormData['nama_jalan'] || ''}">
+                      <input type="text" name="nama_jalan" id="nama_jalan" placeholder="Nama Jalan*" required value="${savedFormData.nama_jalan || ''}">
                       <input type="text" name="desa" id="desa" placeholder="Desa*" required value="${savedFormData.desa || ''}">
                       <input type="text" name="kecamatan" id="kecamatan" placeholder="Kecamatan*" required value="${savedFormData.kecamatan || ''}">
                       <input type="text" name="kabupaten" id="kabupaten" placeholder="Kabupaten*" required value="${savedFormData.kabupaten || ''}">
@@ -66,19 +66,53 @@ const Daftar = {
 
       const formData = new FormData(form);
 
+      const role = roleCheckbox.checked ? 'kepala desa' : 'pengguna';
+      const verifikasi = !roleCheckbox.checked;
+
       const userData = {
         nama: formData.get('nama'),
         no_telp: formData.get('no_telp'),
-        'nama_jalan': formData.get('nama_jalan'),
+        nama_jalan: formData.get('nama_jalan'),
         desa: formData.get('desa'),
         kecamatan: formData.get('kecamatan'),
         kabupaten: formData.get('kabupaten'),
         provinsi: formData.get('provinsi'),
         email: formData.get('email'),
         password: formData.get('password'),
-        role: roleCheckbox.checked ? 'kepala desa' : 'pengguna',
-        verifikasi:roleCheckbox.checked ? false : true,
+        role,
+        verifikasi,
       };
+
+      if (role === 'kepala desa') {
+        const fileInput = document.getElementById('lampiran');
+        const file = fileInput.files[0];
+
+        if (!file) {
+          Swal.fire('Error', 'Berkas Wajib Diisi', 'error');
+          return;
+        }
+
+        const { data: uploadData, error: uploadError } = await supabase.storage
+          .from('surat_keterangan')
+          .upload(`${file.name}`, file, {
+            upsert: false,
+          });
+
+        if (uploadError) {
+          Swal.fire('Error', `Upload failed: ${uploadError.message}`, 'error');
+          return;
+        }
+
+        const publicURL = await supabase.storage.from('surat_keterangan').getPublicUrl(file.name);
+
+        console.log(publicURL);
+
+        if (!publicURL) {
+          Swal.fire('Error', 'Failed to get public URL:', 'error');
+          return;
+        }
+        userData.gambar_lampiran = publicURL.data.publicUrl;
+      }
 
       const { data, error } = await supabase
         .from('users')
@@ -99,14 +133,14 @@ const Daftar = {
         const formData = {
           nama: document.getElementById('nama').value,
           no_telp: document.getElementById('no_telp').value,
-          'nama_jalan': document.getElementById('nama_jalan').value,
+          nama_jalan: document.getElementById('nama_jalan').value,
           desa: document.getElementById('desa').value,
           kecamatan: document.getElementById('kecamatan').value,
           kabupaten: document.getElementById('kabupaten').value,
           provinsi: document.getElementById('provinsi').value,
           email: document.getElementById('email').value,
           role: roleCheckbox.checked ? 'kepala desa' : 'pengguna',
-          verifikasi: roleCheckbox.checked ? false : true,
+          verifikasi: !roleCheckbox.checked,
         };
         localStorage.setItem('daftarFormData', JSON.stringify(formData));
       });
