@@ -7,7 +7,7 @@ const AccountPage = {
         return `
             <div class="container col-container admin-container content">
                 <div id="akun" class="card">
-                    
+                    Loading...
                 </div>
             </div>
         `;

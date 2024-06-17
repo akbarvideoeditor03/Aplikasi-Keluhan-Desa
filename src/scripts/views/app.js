@@ -9,9 +9,14 @@ class App {
         this._content = content;
 
         this._initialAppShell();
+
+        window.addEventListener('userLoggedIn', () => {
+            this.renderPage();
+            window.location.reload();
+        });
     }
 
-    _initialAppShell(){
+    _initialAppShell() {
         DrawerInitiator.init({
             button: this._button,
             drawer: this._drawer,

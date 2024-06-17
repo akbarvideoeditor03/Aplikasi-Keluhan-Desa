@@ -1,8 +1,21 @@
 import Swal from 'sweetalert2';
 import supabase from '../../global/config';
 
+const user = JSON.parse(localStorage.getItem('user'));
 const kirimPengaduan = {
   async render() {
+    if (!user) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Maaf',
+        text: 'Anda diharuskan masuk terlebih dahulu',
+      }).then(() => {
+        window.location.href = '#/masuk';
+      });
+
+      return `<div id="redirect-message" style="display: none;"></div>`;
+    }
+
     const { data: kepalaDesa, error } = await supabase
       .from('users')
       .select('*')
@@ -10,7 +23,7 @@ const kirimPengaduan = {
       .eq('verifikasi', 'true');
 
     const kepalaDesaOptions = kepalaDesa
-      ? kepalaDesa.map((kd) => `<option value="${kd.id}">${kd.nama} | Kepala Desa ${kd.desa}</option>`).join('')
+      ? kepalaDesa.map(kd => `<option value="${kd.id}">${kd.nama} | Kepala Desa ${kd.desa}</option>`).join('')
       : '';
 
     return `
@@ -31,11 +44,11 @@ const kirimPengaduan = {
               <input type="text" name="patokan" id="patokan" placeholder="Patokan (misalnya Balai Desa)*" required>
               
               <select name="kepala-desa" id="kepala-desa" required>
-                <option selected disabled>Pilih Kepala Desa Tujuan*</option>
+                <option selected>Pilih Kepala Desa Tujuan*</option>
                 ${kepalaDesaOptions}
               </select>
 
-              <input type="file" name="lampiran" id="lampiran" class="custom-file-input" required>
+              <input type="file" name="lampiran" id="lampiran" class="custom-file-input" multiple required>
               <label for="lampiran" class="custom-file-label">Tambahkan Lampiran (max. 5MB)*</label>
 
               <div class="role-container">
@@ -52,7 +65,6 @@ const kirimPengaduan = {
                 <button class="button button-remove" type="button" id="batalButton">Batal</button>
                 <button class="button button-accept" type="submit">Kirim</button>
               </div>
-
             </form>
           </div>
         </div>
@@ -61,35 +73,16 @@ const kirimPengaduan = {
   },
 
   async afterRender() {
+    if (!user) return;
+
     const form = document.getElementById('pengaduanForm');
     const batalButton = document.getElementById('batalButton');
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
-
+      
       const user = JSON.parse(localStorage.getItem('user'));
       const formData = new FormData(form);
-      const file = formData.get('lampiran');
-
-      // Menggunakan Supabase Storage untuk mengunggah file ke bucket khusus
-      const { data: uploadData, error: uploadError } = await supabase.storage
-        .from('lampiran_pengaduan') // Ganti dengan nama bucket yang sesuai
-        .upload(file.name, file, {
-          upsert: false,
-        });
-
-      if (uploadError) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Maaf',
-          text: `Gagal mengunggah lampiran: ${uploadError.message}`,
-        });
-        return;
-      }
-
-      const lampiranUrl = await supabase.storage
-        .from('lampiran_pengaduan')
-        .getPublicUrl(file.name);
 
       const pengaduanData = {
         id_pengguna_umum: user.id,
@@ -98,20 +91,19 @@ const kirimPengaduan = {
         tanggal: formData.get('tanggal-pengaduan'),
         lokasi: formData.get('patokan'),
         id_pengguna_kepala_desa: formData.get('kepala-desa'),
-        lampiran: lampiranUrl.data.publicUrl, // Simpan URL lampiran di database
+        lampiran: formData.get('lampiran').toString(),
         created_at: new Date().toISOString(),
       };
 
-      // Mengirim data pengaduan beserta lampiran ke backend
-      const { data: insertData, error: insertError } = await supabase
+      const { data, error } = await supabase
         .from('usersActivity')
         .insert([pengaduanData]);
 
-      if (insertError) {
+      if (error) {
         Swal.fire({
           icon: 'error',
           title: 'Maaf',
-          text: `Gagal mengirim pengaduan: ${insertError.message}`,
+          text: `Gagal mengirim pengaduan: ${error.message}`,
         });
       } else {
         Swal.fire({
@@ -139,6 +131,7 @@ const kirimPengaduan = {
       });
     });
 
+    const MAX_FILES = 5;
     const MAX_SIZE_MB = 5;
     const ALLOWED_TYPES = ['image/png', 'image/jpeg'];
 
@@ -146,35 +139,53 @@ const kirimPengaduan = {
     const fileLabel = document.querySelector('.custom-file-label');
 
     fileInput.addEventListener('change', () => {
-      const file = fileInput.files[0];
+      const { files } = fileInput;
+      let totalSize = 0;
 
-      // Reset label file setelah setiap perubahan
-      fileLabel.textContent = 'Tambahkan Lampiran (max. 5MB)*';
-
-      // Validasi jenis file
-      if (!file || !ALLOWED_TYPES.includes(file.type)) {
+      if (files.length > MAX_FILES) {
         Swal.fire({
           icon: 'error',
           title: 'Maaf',
-          text: 'File lampiran tidak valid. Hanya file .png dan .jpg yang diizinkan.',
+          text: `Ukuran file yang diizinkan ${MAX_FILES}`,
         });
         fileInput.value = '';
+        fileLabel.textContent = 'Tambahkan Lampiran (max.5MB)*';
         return;
       }
 
-      // Validasi ukuran file
-      if (file.size > MAX_SIZE_MB * 1024 * 1024) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Maaf',
-          text: `Ukuran file melebihi ${MAX_SIZE_MB} MB yang diizinkan.`,
-        });
-        fileInput.value = '';
-        return;
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        if (!ALLOWED_TYPES.includes(file.type)) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Maaf',
+            text: `File ${file.name} tidak didukung. Sistem hanya mendukung file .png dan .jpg saja.`,
+          });
+          fileInput.value = '';
+          fileLabel.textContent = 'Tambahkan Lampiran (max.5MB)*';
+          return;
+        }
+        totalSize += file.size;
+        if (totalSize > MAX_SIZE_MB * 1024 * 1024) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Maaf',
+            text: `Ukuran file dibawah ${MAX_SIZE_MB} MB yang diizinkan `,
+          });
+          fileInput.value = '';
+          fileLabel.textContent = 'Tambahkan Lampiran (max.5MB)*';
+          return;
+        }
       }
 
-      // Menampilkan nama file yang dipilih pada label file
-      fileLabel.textContent = file.name || 'Tambahkan Lampiran (max. 5MB)*';
+      let fileNames = '';
+      for (let i = 0; i < files.length; i++) {
+        fileNames += files[i].name;
+        if (i < files.length - 1) {
+          fileNames += ', ';
+        }
+      }
+      fileLabel.textContent = fileNames || 'Tambahkan Lampiran (max.5MB)*';
     });
   },
 };
