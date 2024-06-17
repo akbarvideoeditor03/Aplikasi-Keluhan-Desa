@@ -60,6 +60,37 @@ const status_pengaduan = (item) => `
     </a>
 `;
 
+const rincian_status_pengaduan = (item) => `
+    <div>
+        <h4>Judul Pengaduan</h4>
+        <div class="text text-bg">
+            <p>${item.judul}</p>
+        </div>
+    </div>
+    <div>
+        <h4>Tanggal Pengaduan</h4>
+        <div class="text text-bg">
+            <p>${item.isi}</p>
+        </div>
+    </div>
+    <div>
+        <h4>Tanggal Pengaduan</h4>
+        <div class="text text-bg">
+            <p>${item.tanggal}</p>
+        </div>
+    </div>
+    <div>
+        <h4>Lokasi Pengaduan</h4>
+        <div class="text text-bg">
+            <p>${item.lokasi}</p>
+        </div>
+    </div>
+    <div>
+        <h4>Lampiran</h4>
+        <button id="lihat-lampiran" class="ub-link button button-info"><i class="bi bi-image-fill"> </i>Lihat Lampiran</button>
+    </div>
+`
+
 const kotak_pengaduan = (item) => `
     <a href="#/rincian-pengaduan/${item.id}" class="container col-container ub-link">
         <div class="ub-item container row-container">
@@ -142,16 +173,17 @@ const kritiksaran = () => `
     </div>
 `;
 
-const umpan_balik = () => `
-    <a href="#/rincian-umpanbalik" class="container row-container ub-link">
-        <div class="ub-item container row-container">
-            <div>
-                <i class="bi bi-file-earmark-text" style="font-size: 50px"></i>
-            </div>
-            <div>
-                <h3>Judul Item</h3>
-                <p>Isi Item</p>
-            </div>
+const umpan_balik_template = (item) => `
+    <a href="#/umpan-balik/${item.id}" class="container col-container ub-link">
+        <div class="st-item container row-container">
+        <div class="text-green">
+            <i class="bi bi-check-circle-fill" style="font-size: 50px"></i>
+        </div>
+        <div class="container col-container-0 text-black">
+            <p><span class="judul">${item.judul}</span></p>
+            <p><span class="tanggal">${item.tanggal}</span></p>
+            <p><span class="status">${item.status_pengaduan ? 'Sudah direspon' : 'Menunggu respon'}</span></p>
+        </div>
         </div>
     </a>
 `;
@@ -415,13 +447,17 @@ const verifikasi_baru = (body) => `
 
     <div class="attach">
         <h3>Lampiran</h3>
-        <img src="https://employers.glints.com/id-id/blog/wp-content/uploads/2023/06/Template_Contoh_Surat_Undangan_Dinas-791x1024.webp"
-        class="img"
+        <img src="${body.gambar_lampiran}"
+        class="img-preview"
         alt="lampiran">
     </div>
 
     <div class="warning warn-text">
         <p>Perhatian! Sebelum respon, pastikan data lampiran telah dibaca dengan benar!</p>
+    </div>
+
+    <div>
+        <button type="submit" class="button button-info" id="responButton">Respon</button>
     </div>
 `;
 
@@ -432,7 +468,7 @@ const responPage = (respon) => `
             <hr>
             <h3>Lampiran</h3>
             <div class="content image-container">
-                <img src="https://cdn-web.ruangguru.com/landing-pages/assets/hs/CONTOH-SURAT-DINAS-PEMBERITAHUAN-PTS.jpeg" class="attach-image" alt="" srcset="">
+                <img src="${respon.gambar_lampiran}" class="attach-image" alt="" srcset="">
             </div>
             <h3>Informasi Rinci</h3>
             <table class="table">
@@ -455,7 +491,7 @@ const responPage = (respon) => `
                     <tr>
                         <td>Alamat</td>
                         <td>:</td>
-                        <td>${respon.alamat}</td>
+                        <td>${respon.desa}, ${respon.kecamatan}, ${respon.kabupaten}, ${respon.provinsi}</td>
                     </tr>
                     <tr>
                         <td>Nomor Telepon</td>
@@ -483,7 +519,7 @@ const responPage = (respon) => `
         <div class="r-card container col-container">
             <h3>Keterangan</h3>
 
-            <form id="myForm" action="" method="post">
+            <form id="myForm" class="container col-container">
                 <div class="form-group">
                     <textarea class="textarea" name="keterangan" id="keterangan" placeholder="Ketik keterangan minimal 20 kata..." required></textarea>
                 </div>
@@ -520,7 +556,7 @@ const deleteData = async (id) => {
 export {
     rincian_umpanbalik,
     bantuan__page,
-    umpan_balik,
+    umpan_balik_template,
     kotak_pengaduan,
     rincianPengaduan,
     kritiksaran,
@@ -533,4 +569,5 @@ export {
     responPage,
     deleteData,
     status_pengaduan,
+    rincian_status_pengaduan,
 }

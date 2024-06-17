@@ -334,6 +334,12 @@ nav button {
     justify-content: center;
 }
 
+.attach-image {
+    margin-block: 1rem;
+    width: calc(100%);
+    max-width: 960px;
+}
+
 .new-item {
     overflow: auto;
     height: 650px;
@@ -654,6 +660,11 @@ button {
     padding-block: 1rem;
 }
 
+.img-preview {
+    width: calc(100%);
+    max-width: 650px;
+}
+
 .id-team-bg {
     background-color: white;
     padding: 0.5rem;
@@ -682,6 +693,7 @@ button {
 
 .text-black {color: black;}
 .text-yellow {color: rgb(255, 208, 0);}
+.text-green {color: rgb(21, 177, 10);}
 
 .text-bg {
     font-weight: 500;

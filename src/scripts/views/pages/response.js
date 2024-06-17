@@ -22,17 +22,15 @@ const ResponPage = {
         }
 
         const selectedItem = data[0];
-        // Menyimpan selectedItem dalam variabel global atau dengan cara lain untuk mengaksesnya di afterRender
-        window.selectedItem = selectedItem; // Ini memungkinkan akses ke selectedItem di afterRender
+        window.selectedItem = selectedItem;
         return responPage(selectedItem);
     },
 
     async afterRender() {
         const sentButton = document.querySelector('#sentButton');
         const textarea = document.querySelector('#keterangan');
-        const selectedItem = window.selectedItem; // Mengambil selectedItem yang sudah disimpan di render
 
-        if (sentButton && textarea && selectedItem) {
+        if (sentButton && textarea) {
             textarea.addEventListener('input', () => {
                 const wordCount = textarea.value.trim().split(/\s+/).length;
                 if (wordCount >= 20) {
@@ -44,43 +42,40 @@ const ResponPage = {
 
             sentButton.addEventListener('click', async (event) => {
                 event.preventDefault();
+                const keterangan = textarea.value.trim();
+                Swal.fire({
+                    title: 'Apakah keterangan sudah benar dan lengkap?',
+                    icon: 'question',
+                    showCancelButton: true,
+                    cancelButtonText: 'Kembali',
+                    confirmButtonText: 'Ya, kirim',
+                }).then(async (result) => {
+                    if (result.isConfirmed) {
+                        try {
+                            const { data, error } = await supabase
+                                .from('users')
+                                .update({
+                                    verifikasi: true,
+                                    keterangan,
+                                })
+                                .eq('id', window.selectedItem.id);
 
-                try {
-                    const { data, error } = await supabase
-                        .from('users')
-                        .update({
-                            verifikasi: true,
-                            keterangan: textarea.value.trim(),
-                        })
-                        .eq('id', selectedItem.id);
+                            if (error) {
+                                throw error;
+                            }
 
-                    if (error) {
-                        throw error;
+                            Swal.fire('Berhasil!', 'Data telah diperbarui.', 'success');
+                        } catch (error) {
+                            Swal.fire('Gagal!', 'Terjadi kesalahan saat memperbarui data.', 'error');
+                        }
                     }
-
-                    Swal.fire({
-                        title: 'Sukses!',
-                        text: 'Verifikasi telah berhasil diubah.',
-                        icon: 'success',
-                        confirmButtonText: 'OK',
-                    }).then(() => {
-                        window.location.href = '#/baru';
-                    });
-                } catch (error) {
-                    console.error('Error updating data:', error);
-                    Swal.fire({
-                        title: 'Error!',
-                        text: 'Gagal mengubah verifikasi.',
-                        icon: 'error',
-                        confirmButtonText: 'OK',
-                    });
-                }
+                });
             });
         } else {
             if (!sentButton) console.error('Send button not found');
             if (!textarea) console.error('Textarea not found');
-            if (!selectedItem) console.error('Selected item not found');
         }
+        sentButton.setAttribute('disabled', 'disabled');
     },
 };
 

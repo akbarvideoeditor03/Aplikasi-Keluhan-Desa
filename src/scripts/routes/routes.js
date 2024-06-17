@@ -15,8 +15,8 @@ import DataUmum from '../views/pages/data-umum';
 import DataKepalaDesa from '../views/pages/data-kepala-desa';
 import NewVerificationPage from '../views/pages/verifikasi-baru';
 import ResponPage from '../views/pages/response';
-import { responPage } from '../views/template/template-creator';
 import RincianPengaduan from '../views/pages/rincian-pengaduan';
+import RincianStatusPengaduan from '../views/pages/rincian-status-pengaduan';
 RincianStatusPengaduan
 
 const user = JSON.parse(localStorage.getItem('user'));

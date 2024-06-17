@@ -62,18 +62,13 @@ const NewVerificationPage = {
             }
             
             dataKepalaDesaUnverified.forEach(body => {
-                const buttonRespon = document.createElement('button');
-                buttonRespon.classList.add('button', 'button-respon');
-                buttonRespon.setAttribute('data-id', body.id);
-                buttonRespon.textContent = 'Respon';
-                
+                const buttonRespon = document.querySelector('#responButton');
                 buttonRespon.addEventListener('click', (event) => {
                     event.preventDefault();
                     const id = body.id;
                     localStorage.setItem('selectedKepalaDesa', JSON.stringify(body));
                     window.location.hash = `#/respon/${id}`;
                 });
-
                 const itemElement = document.querySelector(`.button-new-item[data-id="${body.id}"]`);
                 if (itemElement) {
                     itemElement.appendChild(buttonRespon);
@@ -82,7 +77,7 @@ const NewVerificationPage = {
         } catch (error) {
             console.error('Error fetching data:', error);
             const verificationContainer = document.querySelector('#isi');
-            verificationContainer.innerHTML = `<p class="error">Gagal mengambil data pengguna. Harap coba lagi nanti.</p>`;
+            verificationContainer.innerHTML = `<p class="error">Tidak ada item yang dipilih</p>`;
         }
     }
 };
