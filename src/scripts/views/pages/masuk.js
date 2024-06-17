@@ -38,30 +38,12 @@ const Masuk = {
           .single();
 
         if (error) {
-          Swal.fire({
-            title: 'Error',
-            text: 'Pengguna tidak ditemukan atau akun belum terverifikasi.',
-            icon: 'error',
-            timer: 3000,
-            timerProgressBar: true,
-            didClose: () => {
-              window.location.reload();
-            }
-          });
+          Swal.fire('Error', 'Pengguna tidak ditemukan atau akun belum terverifikasi.', 'error');
           return;
         }
 
         if (data.password !== password) {
-          Swal.fire({
-            title: 'Error',
-            text: 'Password salah',
-            icon: 'error',
-            timer: 3000,
-            timerProgressBar: true,
-            didClose: () => {
-              window.location.reload();
-            }
-          });
+          Swal.fire('Error', 'Password salah', 'error');
           return;
         }
 
@@ -70,42 +52,16 @@ const Masuk = {
         console.log('Is Verified:', data.verifikasi);
 
         if (data.role === 'kepala desa' && !data.verifikasi) {
-          Swal.fire({
-            title: 'Access Denied',
-            text: 'Akun Anda masih dalam proses verifikasi. Harap tunggu hingga admin mengonfirmasi.',
-            icon: 'warning',
-            timer: 3000,
-            timerProgressBar: true,
-            didClose: () => {
-              window.location.reload();
-            }
-          });
+          Swal.fire('Access Denied', 'Akun Anda masih dalam proses verifikasi. Harap tunggu hingga admin mengonfirmasi.', 'warning');
           return;
         }
 
-        Swal.fire({
-          title: 'Success',
-          text: 'Login berhasil',
-          icon: 'success',
-          timer: 3000,
-          timerProgressBar: true,
-          didClose: () => {
-            localStorage.setItem('user', JSON.stringify(data));
-            window.location.hash = '#/';
-          }
-        });
+        Swal.fire('Success', 'Login berhasil', 'success');
+        localStorage.setItem('user', JSON.stringify(data));
+        window.location.hash = '#/';
       } catch (error) {
         console.error('Error during login process:', error);
-        Swal.fire({
-          title: 'Error',
-          text: 'Terjadi kesalahan saat login, silakan coba lagi.',
-          icon: 'error',
-          timer: 3000,
-          timerProgressBar: true,
-          didClose: () => {
-            window.location.reload();
-          }
-        });
+        Swal.fire('Error', 'Terjadi kesalahan saat login, silakan coba lagi.', 'error');
       }
     });
   },

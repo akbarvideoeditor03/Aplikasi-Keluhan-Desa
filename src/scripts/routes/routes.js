@@ -5,21 +5,19 @@ import Daftar from '../views/pages/daftar';
 import KotakPengaduan from '../views/pages/kotak-pengaduan';
 import StatusPengaduan from '../views/pages/status-pengaduan';
 import UmpanBalik from '../views/pages/umpan-balik';
-import RincianUmpan_Balik from '../views/pages/umpan-balik-rincian';
+import RincianUmpanBalik from '../views/pages/umpan-balik-rincian';
 import KritikSaran from '../views/pages/kritik-saran';
 import Bantuan from '../views/pages/bantuan';
 import TentangKami from '../views/pages/tentang';
 import kirimPengaduan from '../views/pages/kirim-pengaduan';
-import AccountPage from "../views/pages/akun-admin";
+import AccountPage from '../views/pages/akun-admin';
 import DataUmum from '../views/pages/data-umum';
 import DataKepalaDesa from '../views/pages/data-kepala-desa';
 import NewVerificationPage from '../views/pages/verifikasi-baru';
 import ResponPage from '../views/pages/response';
+import { responPage } from '../views/template/template-creator';
 import RincianPengaduan from '../views/pages/rincian-pengaduan';
 import RincianStatusPengaduan from '../views/pages/rincian-status-pengaduan';
-import Akun from '../views/pages/akun';
-import InformasiAnda from '../views/pages/informasi-anda';
-RincianStatusPengaduan
 
 const user = JSON.parse(localStorage.getItem('user'));
 
@@ -40,24 +38,20 @@ const adminRoutes = {
   '/kades': DataKepalaDesa,
   '/baru': NewVerificationPage,
   '/baru/:id': NewVerificationPage,
-  '/respon' : ResponPage,
-  '/respon/:id' : ResponPage,
+  '/respon': ResponPage,
+  '/respon/:id': ResponPage,
 };
 
 const penggunaUmumRoutes = {
   '/status-pengaduan': StatusPengaduan,
   '/status-pengaduan/:id': RincianStatusPengaduan,
   '/umpan-balik': UmpanBalik,
-  '/rincian-umpanbalik': RincianUmpan_Balik,
-  '/akun': Akun,
-  '/informasi_anda': InformasiAnda,
+  '/rincian-umpanbalik/:id': RincianUmpanBalik,
 };
 
 const kepalaDesaRoutes = {
   '/kotak-pengaduan': KotakPengaduan,
   '/rincian-pengaduan/:id': RincianPengaduan,
-  '/akun': Akun,
-  '/informasi_anda': InformasiAnda,
 };
 
 const routes = {
@@ -71,32 +65,27 @@ function checkAccess(route) {
   if (user && user.role === 'admin') {
     if (adminRoutes[route] || commonRoutes[route]) {
       return true;
-    } else {
-      Swal.fire('ANDA TIDAK DIIZINKAN', '', 'error');
-      return false;
     }
-  } else if (user && user.role === 'kepala desa') {
+    Swal.fire('ANDA TIDAK DIIZINKAN', '', 'error');
+    return false;
+  } if (user && user.role === 'kepala desa') {
     if (kepalaDesaRoutes[route] || commonRoutes[route]) {
       return true;
-    } else {
-      Swal.fire('ANDA TIDAK DIIZINKAN', '', 'error');
-      return false;
     }
-  } else if (user && user.role === 'pengguna') {
+    Swal.fire('ANDA TIDAK DIIZINKAN', '', 'error');
+    return false;
+  } if (user && user.role === 'pengguna') {
     if (penggunaUmumRoutes[route] || commonRoutes[route]) {
       return true;
-    } else {
-      Swal.fire('ANDA TIDAK DIIZINKAN', '', 'error');
-      return false;
     }
-  } else {
-    if (commonRoutes[route]) {
-      return true;
-    } else {
-      Swal.fire('ANDA TIDAK DIIZINKAN', '', 'error');
-      return false;
-    }
+    Swal.fire('ANDA TIDAK DIIZINKAN', '', 'error');
+    return false;
   }
+  if (commonRoutes[route]) {
+    return true;
+  }
+  Swal.fire('ANDA TIDAK DIIZINKAN', '', 'error');
+  return false;
 }
 
 export { routes, checkAccess };

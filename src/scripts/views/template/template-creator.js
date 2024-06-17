@@ -1,58 +1,3 @@
-const user = JSON.parse(localStorage.getItem('user'));
-
-const akun = () => `
-    <a href="#/informasi_anda" class="container row-container ub-link">
-        <div class="akun-item container row-container align-center">
-            <div>
-                <i class="bi bi-person-circle" style="font-size: 50px"></i>
-            </div>
-            <div>
-                <h3>Informasi Anda</h3>
-            </div>
-        </div>
-    </a>
-    ${user && user.role === 'kepala desa' ? `
-        <a href="" class="container row-container ub-link">
-        <div class="akun-item container row-container align-center">
-            <div>
-                <i class="bi bi-patch-check" style="font-size: 50px"></i>
-            </div>
-            <div>
-                <h3>Status Verifikasi</h3>
-            </div>
-        </div>
-    </a> 
-    ` : ''}
-`;
-
-const informasi_anda = (user) => `
-    <div>
-        <caption>Nama</caption>
-        <article class="text-bg">
-            ${user.nama}
-        </article>
-    </div>
-    <div>
-        <caption>Nomor Telepon</caption>
-        <article class="text-bg">
-            ${user.no_telp}
-        </article>
-    </div>
-    <div>
-        <caption>Alamat</caption>
-        <article class="text-bg">
-            ${user.nama_jalan}, desa ${user.desa}, kec. ${user.kecamatan}, kab. ${user.kabupaten}, ${user.provinsi}
-        </article>
-    </div>
-    <div>
-        <caption>Email</caption>
-        <article class="text-bg">
-            ${user.email}
-        </article>
-    </div>
-    <button id="editButton" class="button button-info"><i class="bi bi-pencil-square" style="font-size: 1em;"></i> Edit Akun</button>
-`;
-
 const bantuan__page = () => `
     <button type="button" class="collapsible">Cara mengirimkan pesan pengaduan</button>
     <div class="content-collapsible">
@@ -115,43 +60,6 @@ const status_pengaduan = (item) => `
     </a>
 `;
 
-const rincian_status_pengaduan = (item, namaKepalaDesa) => `
-    <div>
-        <h4>Judul Pengaduan</h4>
-        <div class="text text-bg">
-            <p>${item.judul}</p>
-        </div>
-    </div>
-    <div>
-        <h4>Isi Pengaduan</h4>
-        <div class="text text-bg">
-            <p>${item.isi}</p>
-        </div>
-    </div>
-    <div>
-        <h4>Tanggal Pengaduan</h4>
-        <div class="text text-bg">
-            <p>${item.tanggal}</p>
-        </div>
-    </div>
-    <div>
-        <h4>Lokasi Pengaduan</h4>
-        <div class="text text-bg">
-            <p>${item.lokasi}</p>
-        </div>
-    </div>
-    <div>
-        <h4>Nama Kepala Desa</h4>
-        <div class="text text-bg">
-            <p>${namaKepalaDesa}</p>
-        </div>
-    </div>
-    <div>
-        <h4>Lampiran</h4>
-        <button id="lihat-lampiran" class="ub-link button button-info"><i class="bi bi-image-fill"> </i>Lihat Lampiran</button>
-    </div>
-`;
-
 const kotak_pengaduan = (item) => `
     <a href="#/rincian-pengaduan/${item.id}" class="container col-container ub-link">
         <div class="ub-item container row-container">
@@ -176,7 +84,7 @@ const rincianPengaduan = (item) => `
         </div>
     </div>
     <div>
-        <h4>Tanggal Pengaduan</h4>
+        <h4>Isi Pengaduan</h4>
         <div class="text text-bg">
             <p>${item.isi}</p>
         </div>
@@ -234,56 +142,56 @@ const kritiksaran = () => `
     </div>
 `;
 
-const umpan_balik_template = (item) => `
-    <a href="#/umpan-balik/${item.id}" class="container col-container ub-link">
-        <div class="st-item container row-container">
-        <div class="text-green">
-            <i class="bi bi-check-circle-fill" style="font-size: 50px"></i>
-        </div>
-        <div class="container col-container-0 text-black">
-            <p><span class="judul">${item.judul}</span></p>
-            <p><span class="tanggal">${item.tanggal}</span></p>
-            <p><span class="status">${item.status_pengaduan ? 'Sudah direspon' : 'Menunggu respon'}</span></p>
-        </div>
+const umpan_balik = (item) => `
+    <a href="#/rincian-umpanbalik/${item.id}" class="container row-container ub-link">
+        <div class="ub-item container row-container">
+            <div>
+                <i class="bi-check-circle" style="font-size: 50px"></i>
+            </div>
+            <div class="container col-container-0">
+                <p>${item.judul}</p>
+                <p>${item.tanggal}</p>
+                <p>${item.status_pengaduan ? 'Sudah direspon' : 'Belum direspon'}</p>
+            </div>
         </div>
     </a>
 `;
 
-const rincian_umpanbalik = () => `
+const rincian_umpanbalik = (item) => `
     <div>
         <h4>Judul Pengajuan</h4>
         <div class="text text-bg">
-            <p>Jalan desa banyak berlubang</p>
+            <p>${item.judul}</p>
         </div>
     </div>
     <div>
         <h4>Isi Pengaduan</h4>
         <div class="text text-bg">
-            <p>Pengguna kendaraan roda 2 sangat tidak nyaman dengan kondisi jalan. Dan minta diperbaiki secepatnya.</p>
+            <p>${item.isi}</p>
         </div>
     </div>
     <div>
         <h4>Tanggal Pengaduan</h4>
         <div class="text text-bg">
-            <p>15 Mei 2024</p>
+            <p>${item.tanggal}</p>
         </div>
     </div>
     <div>
         <h4>Lokasi Pengaduan</h4>
         <div class="text text-bg">
-            <p>Desa Tebo Jaya, Kec. Limbur Lubuk Mengkuang, Kab. Bungo, Jambi</p>
+            <p>${item.lokasi}</p>
         </div>
     </div>
     <div>
         <h4>Patokan Pengaduan</h4>
         <div class="text text-bg">
-            <p>Jalan Poros Sunan Sari (Dekat Gindo Tailor)</p>
+            <p>${item.lokasi}</p>
         </div>
     </div>
     <div>
         <h4>Kepala Desa Tujuan</h4>
         <div class="text text-bg">
-            <p>Kepala Desa Tebo Jaya</p>
+            <p>${item.id_pengguna_kepala_desa}</p>
         </div>
     </div>
     <div>
@@ -293,11 +201,9 @@ const rincian_umpanbalik = () => `
     <hr>
 
     <div>
-        <h4>Respon dari Kepala Desa ${('nama desa')}</h4>
+        <h4>Respon dari Kepala Desa ${item.desa}</h4>
         <div class="text text-bg-respon">
-            <p>Kepada saudara/i yang terhormat, laporan pengaduan Anda telah kami terima.
-            Dan saat ini kami sedang merencanakan upaya perbaikan dalam 5 hari mendatang.
-            Mohon bersabar dan selalu berhati-hati dalam berkendara 🙏.</p>
+            <p>${item.respon_pengaduan}</p>
         </div>
     </div>
 `;
@@ -509,16 +415,12 @@ const verifikasi_baru = (body) => `
     <div class="attach">
         <h3>Lampiran</h3>
         <img src="${body.gambar_lampiran}"
-        class="img-preview"
+        class="img"
         alt="lampiran">
     </div>
 
     <div class="warning warn-text">
         <p>Perhatian! Sebelum respon, pastikan data lampiran telah dibaca dengan benar!</p>
-    </div>
-
-    <div>
-        <button type="submit" class="button button-info" id="responButton">Respon</button>
     </div>
 `;
 
@@ -529,7 +431,7 @@ const responPage = (respon) => `
             <hr>
             <h3>Lampiran</h3>
             <div class="content image-container">
-                <img src="${respon.gambar_lampiran}" class="attach-image" alt="" srcset="">
+                <img src="https://cdn-web.ruangguru.com/landing-pages/assets/hs/CONTOH-SURAT-DINAS-PEMBERITAHUAN-PTS.jpeg" class="attach-image" alt="" srcset="">
             </div>
             <h3>Informasi Rinci</h3>
             <table class="table">
@@ -552,7 +454,7 @@ const responPage = (respon) => `
                     <tr>
                         <td>Alamat</td>
                         <td>:</td>
-                        <td>${respon.desa}, ${respon.kecamatan}, ${respon.kabupaten}, ${respon.provinsi}</td>
+                        <td>${respon.alamat}</td>
                     </tr>
                     <tr>
                         <td>Nomor Telepon</td>
@@ -580,7 +482,7 @@ const responPage = (respon) => `
         <div class="r-card container col-container">
             <h3>Keterangan</h3>
 
-            <form id="myForm" class="container col-container">
+            <form id="myForm" action="" method="post">
                 <div class="form-group">
                     <textarea class="textarea" name="keterangan" id="keterangan" placeholder="Ketik keterangan minimal 20 kata..." required></textarea>
                 </div>
@@ -596,41 +498,38 @@ const responPage = (respon) => `
 `;
 
 const deleteData = async (id) => {
-    const url = ENDPOINT_OF_API.deleteData(id);
-    try {
-        const response = await fetch(url, {
-            method: 'DELETE',
-        });
+  const url = ENDPOINT_OF_API.deleteData(id);
+  try {
+    const response = await fetch(url, {
+      method: 'DELETE',
+    });
 
-        if (!response.ok) {
-            throw new Error('Gagal menghapus data');
-        }
-
-        const result = await response.json();
-        return result;
-    } catch (error) {
-        console.error('Error:', error);
-        throw error;
+    if (!response.ok) {
+      throw new Error('Gagal menghapus data');
     }
+
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error('Error:', error);
+    throw error;
+  }
 };
 
 export {
-    akun,
-    informasi_anda,
-    rincian_umpanbalik,
-    bantuan__page,
-    umpan_balik_template,
-    kotak_pengaduan,
-    rincianPengaduan,
-    kritiksaran,
-    tentang_kami,
-    akun_admin,
-    data_umum,
-    data_kepaladesa,
-    list_NewItem,
-    verifikasi_baru,
-    responPage,
-    deleteData,
-    status_pengaduan,
-    rincian_status_pengaduan,
-}
+  rincian_umpanbalik,
+  bantuan__page,
+  umpan_balik,
+  kotak_pengaduan,
+  rincianPengaduan,
+  kritiksaran,
+  tentang_kami,
+  akun_admin,
+  data_umum,
+  data_kepaladesa,
+  list_NewItem,
+  verifikasi_baru,
+  responPage,
+  deleteData,
+  status_pengaduan,
+};
