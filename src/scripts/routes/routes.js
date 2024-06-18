@@ -19,6 +19,8 @@ import RincianPengaduan from '../views/pages/rincian-pengaduan';
 import RincianStatusPengaduan from '../views/pages/rincian-status-pengaduan';
 import Akun from '../views/pages/akun';
 import InformasiAnda from '../views/pages/informasi-anda';
+import StatusVerifikasi from '../views/pages/status-verifikasi';
+
 
 const user = JSON.parse(localStorage.getItem('user'));
 
@@ -57,6 +59,7 @@ const kepalaDesaRoutes = {
   '/rincian-pengaduan/:id': RincianPengaduan,
   '/akun': Akun,
   '/informasi_anda': InformasiAnda,
+  '/status-verifikasi' : StatusVerifikasi,
 };
 
 const routes = {

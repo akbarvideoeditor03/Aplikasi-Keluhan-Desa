@@ -1,5 +1,6 @@
 import { bantuan__page } from "../template/template-creator";
 
+
 const Bantuan = {
     async render() {
         return `
