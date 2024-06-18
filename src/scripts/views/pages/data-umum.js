@@ -30,7 +30,6 @@ const DataUmum = {
                             </tr>
                         </thead>
                         <tbody id="isi">
-                            Loading...
                         </tbody>
                     </table>
                 </div>

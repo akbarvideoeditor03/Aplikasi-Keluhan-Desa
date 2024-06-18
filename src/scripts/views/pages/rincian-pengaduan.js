@@ -1,7 +1,65 @@
 import supabase from "../../global/config.js";
 import Swal from 'sweetalert2';
-import { rincianPengaduan } from '../template/template-creator.js';
+import {
+    rincianPengaduan
+} from '../template/template-creator.js';
 import UrlParser from '../../routes/url-parser.js';
+
+let logoutTimer;
+
+const startLogoutTimer = () => {
+    clearTimeout(logoutTimer);
+    logoutTimer = setTimeout(() => {
+        localStorage.removeItem('user');
+        Swal.fire({
+            title: 'Session Expired',
+            text: 'Sesi Anda telah habis. Silakan login kembali.',
+            icon: 'warning',
+            confirmButtonText: 'OK',
+            willClose: () => {
+                window.location.href = '#/masuk';
+                window.location.reload();
+            }
+        });
+    }, 600000);
+};
+
+const resetTimer = () => {
+    startLogoutTimer();
+    localStorage.setItem('lastActivity', Date.now());
+};
+
+const checkSession = () => {
+    const lastActivity = localStorage.getItem('lastActivity');
+    if (lastActivity) {
+        const currentTime = Date.now();
+        const elapsed = currentTime - lastActivity;
+        if (elapsed > 600000) {
+            localStorage.removeItem('user');
+            Swal.fire({
+                title: 'Session Expired',
+                text: 'Sesi Anda telah habis. Silakan login kembali.',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                willClose: () => {
+                    window.location.href = '#/masuk';
+                    window.location.reload();
+                }
+            });
+        } else {
+            startLogoutTimer();
+        }
+    } else {
+        startLogoutTimer();
+    }
+};
+
+document.addEventListener('mousemove', resetTimer);
+document.addEventListener('keypress', resetTimer);
+document.addEventListener('scroll', resetTimer);
+document.addEventListener('click', resetTimer);
+
+checkSession();
 
 const RincianPengaduan = {
     async render() {
@@ -20,7 +78,10 @@ const RincianPengaduan = {
         const url = UrlParser.parseActiveUrlWithoutCombiner();
         const pengaduanId = url.id;
 
-        const { data, error } = await supabase
+        const {
+            data,
+            error
+        } = await supabase
             .from('usersActivity')
             .select('*')
             .eq('id', pengaduanId);
@@ -67,9 +128,15 @@ const RincianPengaduan = {
             const respon = textarea.value.trim();
 
             try {
-                const { data, error } = await supabase
+                const {
+                    data,
+                    error
+                } = await supabase
                     .from('usersActivity')
-                    .update({ respon_pengaduan: respon, status_pengaduan: true })
+                    .update({
+                        respon_pengaduan: respon,
+                        status_pengaduan: true
+                    })
                     .eq('id', pengaduanId);
 
                 if (error) {

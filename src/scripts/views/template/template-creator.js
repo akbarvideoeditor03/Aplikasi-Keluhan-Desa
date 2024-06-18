@@ -1,3 +1,59 @@
+let logoutTimer;
+
+const startLogoutTimer = () => {
+    clearTimeout(logoutTimer);
+    logoutTimer = setTimeout(() => {
+        localStorage.removeItem('user');
+        Swal.fire({
+            title: 'Session Expired',
+            text: 'Sesi Anda telah habis. Silakan login kembali.',
+            icon: 'warning',
+            confirmButtonText: 'OK',
+            willClose: () => {
+                window.location.href = '#/masuk';
+                window.location.reload();
+            }
+        });
+    }, 10000);
+};
+
+const resetTimer = () => {
+    startLogoutTimer();
+    localStorage.setItem('lastActivity', Date.now());
+};
+
+const checkSession = () => {
+    const lastActivity = localStorage.getItem('lastActivity');
+    if (lastActivity) {
+        const currentTime = Date.now();
+        const elapsed = currentTime - lastActivity;
+        if (elapsed > 10000) {
+            localStorage.removeItem('user');
+            Swal.fire({
+                title: 'Session Expired',
+                text: 'Sesi Anda telah habis. Silakan login kembali.',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                willClose: () => {
+                    window.location.href = '#/masuk';
+                    window.location.reload();
+                }
+            });
+        } else {
+            startLogoutTimer();
+        }
+    } else {
+        startLogoutTimer();
+    }
+};
+
+document.addEventListener('mousemove', resetTimer);
+document.addEventListener('keypress', resetTimer);
+document.addEventListener('scroll', resetTimer);
+document.addEventListener('click', resetTimer);
+
+checkSession();
+
 const user = JSON.parse(localStorage.getItem('user'));
 
 const akun = () => `
@@ -12,7 +68,7 @@ const akun = () => `
         </div>
     </a>
     ${user && user.role === 'kepala desa' ? `
-        <a href="" class="container row-container ub-link">
+        <a href="#/status-verifikasi" class="container row-container ub-link">
         <div class="akun-item container row-container align-center">
             <div>
                 <i class="bi bi-patch-check" style="font-size: 50px"></i>
@@ -24,6 +80,25 @@ const akun = () => `
     </a> 
     ` : ''}
 `;
+
+const statusverifikasiTemplate = (name, keterangan) => `
+    <div class="container col-container">
+        <div class="container row-container">
+            <div>
+                <i class="bi bi-check-circle"></i>
+            </div>
+            <div class="container col-container-0">
+                <p>Selamat, ${name}!</p>
+                <p>Akun Anda telah diverifikasi</p>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <p>Keterangan: ${keterangan}</p>
+        </div>
+    </div>
+`;
+
 
 const informasi_anda = (user) => `
     <div>
@@ -616,6 +691,7 @@ const deleteData = async (id) => {
 
 export {
     akun,
+    statusverifikasiTemplate,
     informasi_anda,
     rincian_umpanbalik,
     bantuan__page,

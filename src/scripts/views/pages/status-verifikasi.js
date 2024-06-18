@@ -1,7 +1,6 @@
-import {
-    informasi_anda
-} from "../template/template-creator";
-import supabase from "../../global/config";
+supabase
+import supabase from '../../global/config';
+import { statusverifikasiTemplate } from '../template/template-creator';
 
 let logoutTimer;
 
@@ -59,42 +58,42 @@ document.addEventListener('click', resetTimer);
 
 checkSession();
 
-const InformasiAnda = {
+const StatusVerifikasi = {
     async render() {
         return `
             <div class="container col-container content">
-                <h2>Informasi Anda</h2>
-                <div class="account card container col-container">
-                    Loading...
+                <h2>Status Verifikasi</h2>
+                <div class="card card-container account">
+                    <!-- Data will be inserted here -->
                 </div>
             </div>
         `;
     },
 
     async afterRender() {
-        const userId = JSON.parse(localStorage.getItem('user')).id;
-        const {
-            data: user,
-            error
-        } = await supabase
+        // Menggunakan nama kolom yang benar sesuai dengan skema tabel
+        const { data, error } = await supabase
             .from('users')
-            .select('*')
-            .eq('id', userId)
-            .single();
+            .select('nama, keterangan')
+            .eq('role', 'kepala desa')
+            .eq('verifikasi', true);
 
+        const statusVerif = document.querySelector('.account');
+        
         if (error) {
-            console.error('Error fetching user data:', error);
-            document.querySelector('.account').innerHTML = 'Error loading data';
+            console.error('Error fetching data:', error);
+            statusVerif.innerHTML = '<p>Error fetching data</p>';
             return;
         }
 
-        const Account = document.querySelector('.account');
-        Account.innerHTML = informasi_anda(user);
-
-        document.getElementById('editButton').addEventListener('click', () => {
-            window.location.href = `/edit-akun/${userId}`;
-        });
+        if (data && data.length > 0) {
+            // Assuming we are only showing one user for simplicity
+            const user = data[0];
+            statusVerif.innerHTML = statusverifikasiTemplate(user.nama, user.keterangan);
+        } else {
+            statusVerif.innerHTML = '<p>No verified Kepala Desa found</p>';
+        }
     }
-}
+};
 
-export default InformasiAnda;
+export default StatusVerifikasi;
