@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="189.62302mm"
+   height="57.915676mm"
+   viewBox="0 0 189.62302 57.915676"
+   version="1.1"
+   id="svg410"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="banner-footer.svg"
+   inkscape:export-filename="banner.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview412"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.90509668"
+     inkscape:cx="420.39708"
+     inkscape:cy="101.09417"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs407" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-0.87697814,-9.6467595)">
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:17.2379px;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#ffffff;stroke-width:18.3239"
+       x="79.552139"
+       y="30.402761"
+       id="text1234"><tspan
+         sodipodi:role="line"
+         id="tspan1232"
+         x="79.552139"
+         y="30.402761"
+         style="fill:#ffffff;stroke-width:18.3239">KELUHAN</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:17.2379px;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#ffffff;stroke-width:18.3239"
+       x="79.552139"
+       y="49.056221"
+       id="text1238"><tspan
+         sodipodi:role="line"
+         id="tspan1236"
+         x="79.552139"
+         y="49.056221"
+         style="fill:#ffffff;stroke-width:18.3239">DESA</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:5.19183px;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#ffffff;stroke-width:5.5189"
+       x="80.496109"
+       y="56.383907"
+       id="text1292"><tspan
+         sodipodi:role="line"
+         id="tspan1290"
+         x="80.496109"
+         y="56.383907"
+         style="fill:#ffffff;stroke-width:5.5189">Solusi pengaduan cepat dan tepat</tspan></text>
+    <path
+       id="path44"
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.7339;stroke-dasharray:none;stroke-opacity:1"
+       d="M 65.027565,12.343605 52.685902,18.873142 H 18.715107 c -0.669721,0 -1.209019,0.538701 -1.209019,1.208421 v 32.083196 c 0,0.66972 0.539298,1.209018 1.209019,1.209018 h 5.937572 V 24.752175 c 0,-0.66972 0.539299,-1.20902 1.209019,-1.20902 h 40.054116 v -3.461592 c 0,-0.66972 -0.539297,-1.208421 -1.209018,-1.208421 h -3.342721 z" />
+    <path
+       id="path45"
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.7339;stroke-dasharray:none;stroke-opacity:1"
+       d="m 25.861646,23.543318 c -0.66972,0 -1.208782,0.539061 -1.208782,1.208781 v 32.083132 c 0,0.66972 0.539062,1.209088 1.208782,1.209088 h 3.342628 l -3.663606,6.528893 12.341005,-6.528893 h 33.971439 c 0.669719,0 1.209086,-0.539368 1.209086,-1.209088 V 24.752099 c 0,-0.66972 -0.539367,-1.208781 -1.209086,-1.208781 z" />
+    <g
+       id="g47"
+       transform="matrix(1.1559258,0,0,1.1559258,-51.801023,-17.002575)"
+       style="fill:#ffffff;fill-opacity:1">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.731113;stroke-dasharray:none;stroke-opacity:1"
+         id="rect45"
+         width="26.005331"
+         height="2.7089832"
+         x="69.143578"
+         y="48.159603"
+         ry="0.4397482" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.858701;stroke-dasharray:none;stroke-opacity:1"
+         id="rect46"
+         width="35.873772"
+         height="2.7089832"
+         x="69.143578"
+         y="39.473759"
+         ry="0.4397482" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.731113;stroke-dasharray:none;stroke-opacity:1"
+         id="rect47"
+         width="26.005331"
+         height="2.7089832"
+         x="69.143578"
+         y="56.845444"
+         ry="0.4397482" />
+    </g>
+  </g>
+</svg>
