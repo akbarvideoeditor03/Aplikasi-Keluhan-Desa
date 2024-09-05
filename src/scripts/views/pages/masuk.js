@@ -14,7 +14,7 @@ const Masuk = {
               <input type="password" name="password" id="password" placeholder="Password*" required>
               <button class="button button-accept" type="submit"><i class="bi bi-box-arrow-in-right"></i> Masuk</button>
             </form>
-            <p class="text-link" style="font-weight: 500;">Belum memiliki akun? <a href="#/daftar" style="font-weight: bold;" class="button button-info">Klik Disini</a></p>
+            <p class="text-link">Belum memiliki akun? <a href="#/daftar" style="font-weight: bold;">Klik Disini</a></p>
           </div>
         </div>
       </div>
