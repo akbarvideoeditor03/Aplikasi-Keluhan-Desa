@@ -37,7 +37,7 @@ const Daftar = {
                         <button class="btn-group button button-accept" id="submit" type="submit">Daftar</button>
                       </div>
                     </form>
-                    <p class="text-link" style="font-weight: 500;">Sudah memiliki akun? <a href="#/masuk" style="font-weight: bold;" class="button button-info">Klik Disini</a></p>
+                    <p class="text-link">Sudah memiliki akun? <a href="#/masuk" style="font-weight: bold;">Klik Disini</a></p>
                 </div>
             </div>
           </div>
