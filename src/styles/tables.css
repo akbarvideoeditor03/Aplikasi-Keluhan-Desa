@@ -1,0 +1,45 @@
+.table {
+    font-weight: 500;
+    margin-block: 1rem;
+    border-radius: 10px;
+}
+
+.isi {
+    background-color: #FFFFFF;
+}
+
+.table-line {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+.table-line thead tr th {
+    text-align: center;
+}
+
+tr {
+    line-height: 2rem;
+}
+
+.table-line th {
+    background: #075185;
+    color: #FFFFFF;
+    padding: 1em;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.table-line td {
+    border-bottom: 1px solid;
+    padding: 1em;
+}
+
+.swal-table {
+    max-width: 1200px;
+    text-align: left;
+}
+
+.colon-distance {
+    margin-inline: 1rem;
+}

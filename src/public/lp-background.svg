@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="508mm"
+   height="285.75mm"
+   viewBox="0 0 508 285.75"
+   version="1.1"
+   id="svg707"
+   sodipodi:docname="lp-background.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview709"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.36257716"
+     inkscape:cx="743.29006"
+     inkscape:cy="583.32411"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs704">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath6539">
+      <rect
+         style="opacity:0.1;fill:#1395ff;fill-opacity:1;stroke-width:1.5"
+         id="rect6541"
+         width="508"
+         height="285.75"
+         x="0"
+         y="0"
+         ry="5.1081076" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath6543">
+      <rect
+         style="opacity:0.1;fill:#1395ff;fill-opacity:1;stroke-width:1.5"
+         id="rect6545"
+         width="508"
+         height="285.75"
+         x="0"
+         y="0"
+         ry="5.1081076" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath6547">
+      <rect
+         style="opacity:0.1;fill:#1395ff;fill-opacity:1;stroke-width:1.5"
+         id="rect6549"
+         width="508"
+         height="285.75"
+         x="0"
+         y="0"
+         ry="5.1081076" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath6551">
+      <rect
+         style="opacity:0.1;fill:#1395ff;fill-opacity:1;stroke-width:1.5"
+         id="rect6553"
+         width="508"
+         height="285.75"
+         x="0"
+         y="0"
+         ry="5.1081076" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="opacity:0.3;fill:#ffffff;fill-opacity:1;stroke-width:0.96774"
+       id="path880"
+       cx="42.32431"
+       cy="29.918921"
+       r="87.567574"
+       clip-path="url(#clipPath6551)" />
+    <circle
+       style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke-width:0.0725807"
+       id="circle1956"
+       cx="439.4054"
+       cy="209.12839"
+       r="6.5675659"
+       clip-path="url(#clipPath6547)" />
+    <circle
+       style="opacity:0.3;fill:#ffffff;fill-opacity:1;stroke-width:0.274193"
+       id="circle1962"
+       cx="210.27026"
+       cy="248.53378"
+       r="24.810812"
+       clip-path="url(#clipPath6543)" />
+    <circle
+       style="opacity:0.3;fill:#ffffff;fill-opacity:1;stroke-width:0.475805"
+       id="circle1964"
+       cx="446.7027"
+       cy="51.658775"
+       r="43.054047"
+       clip-path="url(#clipPath6539)" />
+  </g>
+</svg>
