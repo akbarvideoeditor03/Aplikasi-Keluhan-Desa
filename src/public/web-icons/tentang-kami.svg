@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="18mm"
+   height="18mm"
+   viewBox="0 0 18 18"
+   version="1.1"
+   id="svg2047"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="tentang-kami.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview2049"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="4.1020923"
+     inkscape:cx="44.123824"
+     inkscape:cy="47.902384"
+     inkscape:window-width="958"
+     inkscape:window-height="991"
+     inkscape:window-x="952"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g2032" />
+  <defs
+     id="defs2044" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g2032"
+       transform="matrix(0.7709627,0,0,0.78038773,-73.908418,-0.78340641)">
+      <rect
+         style="fill:#3481ac;fill-opacity:1;stroke-width:0.427198"
+         id="rect893"
+         width="21.509903"
+         height="21.250122"
+         x="96.783867"
+         y="1.9115367"
+         ry="1.4890114" />
+    </g>
+    <g
+       id="g2257"
+       transform="matrix(0.43090563,0,0,-0.43090565,4.6909435,13.309058)">
+      <path
+         d="M 11,13 H 9 v 2 h 2 M 11,5 H 9 v 6 h 2 m -1,9 C 8.686781,20 7.386421,19.741343 6.173165,19.238796 4.959909,18.736248 3.857518,17.999653 2.928932,17.071068 1.053568,15.195704 0,12.652164 0,10 0,7.347836 1.053568,4.804296 2.928932,2.928932 3.857518,2.000347 4.959909,1.26375 6.173165,0.761204 7.386421,0.258657 8.686781,0 10,0 12.652164,0 15.195704,1.053568 17.071068,2.928932 18.946432,4.804296 20,7.347836 20,10 c 0,1.313219 -0.258657,2.613579 -0.761204,3.826835 -0.502546,1.213256 -1.239143,2.315648 -2.167728,3.244233 -0.928585,0.928585 -2.030977,1.66518 -3.244233,2.167728 C 12.613579,19.741343 11.313219,20 10,20 Z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path2259" />
+    </g>
+  </g>
+</svg>
